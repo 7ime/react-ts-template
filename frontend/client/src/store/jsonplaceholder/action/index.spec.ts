@@ -1,5 +1,5 @@
 import {IJsonPlaceholder} from '@entities/jsonplaceholder'
-import MockJsonPlaceholder from '../../../__tests__/mock/jsonplaceholder'
+import MockJsonPlaceholder from '@__MOCKS__/jsonplaceholder'
 import {JsonPlaceholderAction} from '../index'
 
 describe('jsonPlaceholder actions', () => {

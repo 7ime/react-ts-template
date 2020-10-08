@@ -94,7 +94,8 @@ npm run build-storybook
 * dist - files of the production version of the app
 * static-storybook - files of the production version of the storybook
 * src - application code
-    * \__test__ - this folder stores auxiliary items for tests
+    * \__MOCKS__ - for mocks
+    * \__TESTS__ - for tests
     * api
         * config - configuring for the api
         * fetcher - implementation for interacting with the server
@@ -169,5 +170,6 @@ npm run build-storybook
         * environment - setting up the environment (prod, dev, test)
         * injects - this folder contains decorators to embed the functionality
         * middleware - redux middleware
+        * tests - auxiliary tools for tests
         * type-definitions - d.ts files
         * utils - auxiliary tool

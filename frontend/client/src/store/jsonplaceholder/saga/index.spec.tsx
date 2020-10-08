@@ -1,10 +1,10 @@
 import {IJsonPlaceholder} from '@entities/jsonplaceholder'
-import MockJsonPlaceholder from '@__tests__/mock/jsonplaceholder'
+import MockJsonPlaceholder from '@__MOCKS__/jsonplaceholder'
 import {expectSaga} from 'redux-saga-test-plan'
 import getService from '@services/index'
 import {call} from 'redux-saga-test-plan/matchers'
-import {ISagaTestRunResult} from '@__tests__/model/shared'
 import {JsonPlaceholderAction, JsonPlaceholderState, JsonPlaceholderReducer, JsonPlaceholderSaga} from '../index'
+import {ISagaTestRunResult} from '@toolbox/tests/model/shared'
 
 const service = getService()
 

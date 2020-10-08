@@ -1,5 +1,5 @@
-import {merge} from '../helpers/merge'
 import {IJsonPlaceholder} from '@entities/jsonplaceholder'
+import {merge} from '@toolbox/tests/helpers/merge'
 
 export default class MockJsonPlaceholder {
     static modelDTO = (partial?: Partial<IJsonPlaceholder.ModelDTO>) => merge<IJsonPlaceholder.ModelDTO>({

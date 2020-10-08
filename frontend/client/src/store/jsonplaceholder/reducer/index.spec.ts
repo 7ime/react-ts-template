@@ -1,5 +1,5 @@
 import {JsonPlaceholderAction, JsonPlaceholderState, JsonPlaceholderReducer} from '../index'
-import MockJsonPlaceholder from '@__tests__/mock/jsonplaceholder'
+import MockJsonPlaceholder from '@__MOCKS__/jsonplaceholder'
 
 describe('jsonPlaceholder reducer', () => {
 
