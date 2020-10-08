@@ -20,6 +20,11 @@
         "react",
         "@typescript-eslint"
     ],
+    "globals": {
+        "process": true,
+        "require": true,
+        "module": true
+    },
     "rules": {
         "quotes": [
             "error",
@@ -36,6 +41,7 @@
                 ]
             }
         ],
-        "semi": ["error", "never"]
+        "semi": ["error", "never"],
+        "@typescript-eslint/no-var-requires": "off"
     }
 }
