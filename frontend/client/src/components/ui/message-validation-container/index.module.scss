@@ -1,0 +1,18 @@
+@import "~@styles/variables/colors.module.scss";
+@import "~@styles/variables/shared.module.scss";
+
+.list {
+    font-size: 1.3rem;
+}
+
+.item {
+
+}
+
+.error {
+    color: $red;
+}
+
+.success {
+    color: $green;
+}

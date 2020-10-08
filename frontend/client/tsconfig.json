@@ -1,0 +1,52 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "rootDirs": [
+            "./",
+            "./src"
+        ],
+        "allowJs": true,
+        "strict": true,
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "downlevelIteration": true,
+        "sourceMap": true,
+        "noEmit": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "allowSyntheticDefaultImports": true,
+        "isolatedModules": true,
+        "jsx": "react",
+        "baseUrl": "./",
+        "paths": {
+            "@fonts/*": ["./src/shared/fonts/*"],
+            "@styles/*": ["./src/shared/styles/*"],
+            "@images/*": ["./src/shared/images/*"],
+            "@components/*": ["./src/components/*"],
+            "@api/*": ["./src/api/*"],
+            "@constants/*": ["./src/constants/*"],
+            "@entities/*": ["./src/entities/*"],
+            "@helpers/*": ["./src/helpers/*"],
+            "@models/*": ["./src/models/*"],
+            "@modules/*": ["./src/modules/*"],
+            "@routing/*": ["./src/routing/*"],
+            "@services/*": ["./src/services/*"],
+            "@store/*": ["./src/store/*"],
+            "@toolbox/*": ["./src/toolbox/*"],
+            "@i18n/*": ["./src/i18n/*"],
+            "@__tests__/*": ["./src/__tests__/*"]
+        }
+    },
+    "include": [
+        "src"
+    ]
+}

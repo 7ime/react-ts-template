@@ -1,0 +1,100 @@
+@import "~@styles/variables/colors.module.scss";
+@import "~@styles/variables/shared.module.scss";
+
+.radio {
+    position: relative;
+
+    &.is_disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    .content {
+        display: inline-flex;
+        position: relative;
+        padding-left: 3rem;
+    }
+
+    .description {
+        position: relative;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.6rem;
+    }
+
+    .pseudoControl {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        border: 1px solid $grey_light_30;
+        background-color: #fff;
+        background-position: center center;
+        background-size: 1.8rem;
+
+        &:before {
+            position: absolute;
+            opacity: 0;
+            content: '';
+            width: 1.2rem;
+            height: 1.2rem;
+            background-color: $grey_light_70;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &.is_checked {
+        .pseudoControl {
+            &:before {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.primary {
+        .pseudoControl {
+            &:before {
+                background-color: $primary;
+            }
+        }
+    }
+
+    &.secondary {
+        .pseudoControl {
+            &:before {
+                background-color: $secondary;
+            }
+        }
+    }
+
+    &.is_success {
+        .pseudoControl {
+            border-color: $green;
+
+            &:before {
+                background-color: $green;
+            }
+        }
+    }
+
+    &.is_error {
+        .pseudoControl {
+            border-color: $red;
+
+            &:before {
+                background-color: $red;
+            }
+        }
+    }
+
+
+    .control {
+        display: none;
+    }
+}

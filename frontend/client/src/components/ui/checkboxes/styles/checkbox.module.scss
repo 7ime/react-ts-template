@@ -1,0 +1,106 @@
+@import "~@styles/variables/colors.module.scss";
+@import "~@styles/variables/shared.module.scss";
+
+.checkbox {
+    position: relative;
+
+    &.is_disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    .content {
+        display: inline-flex;
+        position: relative;
+        padding-left: 3rem;
+    }
+
+    .description {
+        position: relative;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.6rem;
+    }
+
+    .pseudoControl {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 2px;
+        border: 1px solid $grey_light_30;
+        background-color: #fff;
+        background-position: center center;
+        background-size: 1.8rem;
+    }
+
+    &.is_checked {
+        .pseudoControl {
+            background-image: url('~@images/icons/check.svg');
+        }
+
+        &.primary, &.secondary, &.is_error, &.is_success {
+            .pseudoControl {
+                background-image: url('~@images/icons/check-white.svg');
+            }
+        }
+
+        &.primary {
+            .pseudoControl {
+                background-color: $primary;
+            }
+        }
+
+        &.secondary {
+            .pseudoControl {
+                background-color: $secondary;
+            }
+        }
+
+        &.is_error {
+            .pseudoControl {
+                background-color: $red;
+            }
+        }
+
+        &.is_success {
+            .pseudoControl {
+                background-color: $green;
+            }
+        }
+    }
+
+    &.primary {
+        .pseudoControl {
+            border-color: $primary;
+        }
+    }
+
+    &.secondary {
+        .pseudoControl {
+            border-color: $secondary;
+        }
+    }
+
+    &.is_error {
+        .pseudoControl {
+            border-color: $red;
+        }
+    }
+
+    &.is_success {
+        .pseudoControl {
+            border-color: $green;
+        }
+    }
+
+    .control {
+        display: none;
+    }
+
+    .messageContainer {
+        margin-top: 0.5rem;
+    }
+}

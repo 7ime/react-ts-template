@@ -1,0 +1,30 @@
+@import '~@styles/variables/colors.module.scss';
+@import '~@styles/variables/shared.module.scss';
+
+.content {
+    background: #ffffff;
+    padding: 2rem 3rem;
+    border-radius: $bdrs;
+    border: 1px solid $grey_light_20;
+    display: flex;
+    flex-direction: column;
+}
+
+.list {
+    margin-top: 3rem;
+
+    .item {
+        margin-bottom: 1rem;
+
+        .title {
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .text {
+            font-size: 1rem;
+            color: $grey;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "presets": [
+    "react-app"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-react-constant-elements",
+    [
+      "named-asset-import",
+      {
+        "loaderMap": {
+          "svg": {
+            "ReactComponent": "@svgr/webpack?-svgo,+titleProp,+ref![path]"
+          }
+        }
+      }
+    ]
+  ]
+}

@@ -1,0 +1,98 @@
+//purple
+$purple: #6861CE;
+
+//orange
+$orange: #F5B405;
+
+//yellow
+$yellow: #FFDB4D;
+
+//green
+$green: #53B446;
+
+$green_dark_50: #007700;
+
+$green_light_50: #A3C293;
+$green_light_10: #FCFFF5;
+
+//red
+$red: #F04D42;
+$red_light_50: #F2AB99;
+$red_light_10: #FFEFE9;
+
+//blue
+$blue: #1A73E8;
+
+$blue_dark_50: #26416C;
+
+$blue_light_50: #419FD9;
+$blue_light_20: #E3EDFD;
+$blue_light_10: #F7F7F7;
+
+//grey
+$grey: #575962;
+
+$grey_dark_100: #222;
+$grey_dark_50: #3B455E;
+
+$grey_light_70: #8d9498;
+$grey_light_50: #dedede;
+$grey_light_40: #E0E1E2;
+$grey_light_30: #eaeaea;
+$grey_light_20: #F5F5F5;
+$grey_light_10: #F9FBFD;
+
+//other
+$primary: $blue;
+$secondary: $green;
+$warning: $red;
+
+$text_c: $grey_dark_100;
+
+:export {
+    //purple
+    _purple: $purple;
+
+    //orange
+    _orange: $orange;
+
+    //yellow
+    _yellow: $yellow;
+
+    //green
+    _green: $green;
+    _green_dark_50: $green_dark_50;
+    _green_light_50: $green_light_50;
+    _green_light_10: $green_light_10;
+
+    //red
+    _red: $red;
+    _red_light_50: $red_light_50;
+    _red_light_10: $red_light_10;
+
+    //blue
+    _blue: $blue;
+    _blue_dark_50: $blue_dark_50;
+    _blue_light_50: $blue_light_50;
+    _blue_light_20: $blue_light_20;
+    _blue_light_10: $blue_light_10;
+
+    //grey
+    _grey: $grey;
+    _grey_dark_100: $grey_dark_100;
+    _grey_dark_50: $grey_dark_50;
+
+    _grey_light_70: $grey_light_70;
+    _grey_light_50: $grey_light_50;
+    _grey_light_40: $grey_light_40;
+    _grey_light_30: $grey_light_30;
+    _grey_light_20: $grey_light_20;
+    _grey_light_10: $grey_light_10;
+
+    //other
+    _primary: $primary;
+    _secondary: $secondary;
+    _warning: $warning;
+
+    _text_c: $text_c;
+}
