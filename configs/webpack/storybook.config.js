@@ -1,11 +1,11 @@
-const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
+const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin')
 
-const rules = require('./tools/rules');
-const alias = require('./tools/alias');
-const extensions = require('./tools/extensions');
-const plugins = require('./tools/plugins');
+const rules = require('./tools/rules')
+const alias = require('./tools/alias')
+const extensions = require('./tools/extensions')
+const plugins = require('./tools/plugins')
 
-const isDevMode = process.env.NODE_ENV === 'development';
+const isDevMode = process.env.NODE_ENV === 'development'
 
 module.exports = function (webpackEnv, argv) {
     return {

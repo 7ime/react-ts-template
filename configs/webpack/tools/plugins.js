@@ -1,12 +1,12 @@
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const {resolvePath} = require('./helpers');
-const paths = require('./paths');
+const {resolvePath} = require('./helpers')
+const paths = require('./paths')
 
 const configForkTsCheckerWebpackPlugin = {
     tsconfig: resolvePath('tsconfig.json'),

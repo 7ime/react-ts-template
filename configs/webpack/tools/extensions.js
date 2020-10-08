@@ -1,1 +1,1 @@
-module.exports = ['.ts', '.tsx', '.js', '.json'];
+module.exports = ['.ts', '.tsx', '.js', '.json']

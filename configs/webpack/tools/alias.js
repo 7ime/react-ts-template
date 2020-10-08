@@ -1,5 +1,5 @@
-const {resolvePath} = require('./helpers');
-const paths = require('./paths');
+const {resolvePath} = require('./helpers')
+const paths = require('./paths')
 
 module.exports = {
     '@fonts': resolvePath(paths.source + '/assets/fonts'),
@@ -19,4 +19,4 @@ module.exports = {
     '@i18n': resolvePath(paths.source + '/i18n'),
     '@__tests__': resolvePath(paths.source + '/__tests__'),
     '@__MOCKS__': resolvePath(paths.source + '/__MOCKS__'),
-};
+}

@@ -1,9 +1,9 @@
-const merge = require('webpack-merge');
+const merge = require('webpack-merge')
 
-const {resolvePath} = require('./tools/helpers');
-const commonConfig = require('./common.config');
-const paths = require('./tools/paths');
-const plugins = require('./tools/plugins');
+const {resolvePath} = require('./tools/helpers')
+const commonConfig = require('./common.config')
+const paths = require('./tools/paths')
+const plugins = require('./tools/plugins')
 
 const mode = 'development'
 process.env.NODE_ENV = mode;
@@ -33,7 +33,7 @@ module.exports = function (webpackEnv, argv) {
                 ignored: /node_modules/
             },
             proxy: {
-                "/api": "http://localhost:8080",
+                '/api': 'http://localhost:8080',
             }
         },
         devtool: 'inline-source-map',

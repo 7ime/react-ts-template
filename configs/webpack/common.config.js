@@ -1,11 +1,11 @@
-const {resolvePath} = require('./tools/helpers');
-const paths = require('./tools/paths');
-const rules = require('./tools/rules');
-const extensions = require('./tools/extensions');
-const alias = require('./tools/alias');
-const plugins = require('./tools/plugins');
+const {resolvePath} = require('./tools/helpers')
+const paths = require('./tools/paths')
+const rules = require('./tools/rules')
+const extensions = require('./tools/extensions')
+const alias = require('./tools/alias')
+const plugins = require('./tools/plugins')
 
-const isDevMode = process.env.NODE_ENV === 'development';
+const isDevMode = process.env.NODE_ENV === 'development'
 
 module.exports = {
     context: resolvePath(paths.source),
