@@ -14,7 +14,7 @@ const configForkTsCheckerWebpackPlugin = {
     checkSyntacticErrors: true,
     formatter: 'codeframe',
     silent: false,
-    tslint: true,
+    eslint: true,
     watch: 'src',
     workers: 1,
 }

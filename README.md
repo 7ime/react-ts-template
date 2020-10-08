@@ -51,7 +51,7 @@ npm run build-storybook
 * [React router](https://reactrouter.com/) - collection of navigational components.
 * [Webpack](https://webpack.js.org/) - is used to compile JavaScript modules.
 * [Babel](https://babeljs.io/) - to be able to use a new generation of javascript.
-* [Ts lint](https://github.com/palantir/tslint) - extensible static analysis tool that checks TypeScript code for readability, maintainability, and functionality errors.
+* [ESlint](https://eslint.org/) - linting code.
 * [Jest](https://jestjs.io/) - testing Framework.
 * [Redux saga test plan](https://github.com/jfairbank/redux-saga-test-plan) - makes testing sagas a breeze.
 * [Axios](https://github.com/axios/axios) - promise based HTTP client for the browser and node.js.
