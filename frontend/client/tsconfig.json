@@ -43,8 +43,8 @@
             "@store/*": ["./src/store/*"],
             "@toolbox/*": ["./src/toolbox/*"],
             "@i18n/*": ["./src/i18n/*"],
-            "@__TESTS__/*": ["./src/__TESTS__/*"],
-            "@__MOCKS__/*": ["./src/__MOCKS__/*"]
+            "@__tests__/*": ["./src/__tests__/*"],
+            "@__mocks__/*": ["./src/__mocks__/*"]
         }
     },
     "include": [

@@ -1,7 +1,7 @@
 import JsonPlaceholderService from './index'
 import {IJsonPlaceholder} from '@entities/jsonplaceholder'
 import Paths from '@api/paths'
-import MockJsonPlaceholder from '@__MOCKS__/jsonplaceholder'
+import MockJsonPlaceholder from '@__mocks__/jsonplaceholder'
 import {axiosMockAdapter} from '@api/fetcher'
 
 const instanceService = new JsonPlaceholderService()

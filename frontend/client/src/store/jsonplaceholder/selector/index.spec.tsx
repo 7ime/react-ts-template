@@ -1,7 +1,7 @@
 import {JsonPlaceholderState, JsonPlaceholderSelector} from '../index'
-import MockJsonPlaceholder from '@__MOCKS__/jsonplaceholder'
+import MockJsonPlaceholder from '@__mocks__/jsonplaceholder'
 import {IAppState} from '../../app-reducer'
-import MockAppState from '@__MOCKS__/app-state'
+import MockAppState from '@__mocks__/app-state'
 
 describe('jsonPlaceholder selector', () => {
     it('getTotalCountOfPosts when posts not exist', () => {

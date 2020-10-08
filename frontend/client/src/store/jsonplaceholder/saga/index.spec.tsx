@@ -1,5 +1,5 @@
 import {IJsonPlaceholder} from '@entities/jsonplaceholder'
-import MockJsonPlaceholder from '@__MOCKS__/jsonplaceholder'
+import MockJsonPlaceholder from '@__mocks__/jsonplaceholder'
 import {expectSaga} from 'redux-saga-test-plan'
 import getService from '@services/index'
 import {call} from 'redux-saga-test-plan/matchers'

@@ -94,8 +94,8 @@ npm run build-storybook
 * dist - files of the production version of the app
 * static-storybook - files of the production version of the storybook
 * src - application code
-    * \__MOCKS__ - for mocks
-    * \__TESTS__ - for tests
+    * \__mocks__ - for mocks
+    * \__tests__ - for tests
     * api
         * config - configuring for the api
         * fetcher - implementation for interacting with the server
