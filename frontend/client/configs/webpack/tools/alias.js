@@ -2,9 +2,9 @@ const {resolvePath} = require('./helpers');
 const paths = require('./paths');
 
 module.exports = {
-    '@fonts': resolvePath(paths.source + '/shared/fonts'),
-    '@images': resolvePath(paths.source + '/shared/images'),
-    '@styles': resolvePath(paths.source + '/shared/styles'),
+    '@fonts': resolvePath(paths.source + '/assets/fonts'),
+    '@images': resolvePath(paths.source + '/assets/images'),
+    '@styles': resolvePath(paths.source + '/assets/styles'),
     '@components': resolvePath(paths.source + '/components'),
     '@api': resolvePath(paths.source + '/api'),
     '@constants': resolvePath(paths.source + '/constants'),

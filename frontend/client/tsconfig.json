@@ -28,9 +28,9 @@
         "jsx": "react",
         "baseUrl": "./",
         "paths": {
-            "@fonts/*": ["./src/shared/fonts/*"],
-            "@styles/*": ["./src/shared/styles/*"],
-            "@images/*": ["./src/shared/images/*"],
+            "@fonts/*": ["./src/assets/fonts/*"],
+            "@styles/*": ["./src/assets/styles/*"],
+            "@images/*": ["./src/assets/images/*"],
             "@components/*": ["./src/components/*"],
             "@api/*": ["./src/api/*"],
             "@constants/*": ["./src/constants/*"],
