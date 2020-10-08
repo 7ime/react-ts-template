@@ -43,24 +43,24 @@ npm run build-storybook
 
 ### Ecosystem
 
-* [TypeScript](https://typescriptlang.org/) - Primary Language.
-* [React.js](https://reactjs.org/) - A JavaScript library for building user interfaces.
-* [Redux](https://redux.js.org/) - Managing app state.
-* [Redux-saga](https://redux-saga.js.org/) - Library that aims to make application side effects.
-* [Reselect](https://github.com/reduxjs/reselect) - Simple “selector” library for Redux.
-* [React router](https://reactrouter.com/) - Collection of navigational components.
-* [Webpack](https://webpack.js.org/) - Webpack is used to compile JavaScript modules.
-* [Babel](https://babeljs.io/) - To be able to use a new generation of javascript.
-* [Ts lint](https://github.com/palantir/tslint) - Extensible static analysis tool that checks TypeScript code for readability, maintainability, and functionality errors.
-* [Jest](https://jestjs.io/) - Testing Framework.
+* [TypeScript](https://typescriptlang.org/) - primary Language.
+* [React.js](https://reactjs.org/) - library for building user interfaces.
+* [Redux](https://redux.js.org/) - managing app state.
+* [Redux-saga](https://redux-saga.js.org/) - library that aims to make application side effects.
+* [Reselect](https://github.com/reduxjs/reselect) - simple “selector” library for Redux.
+* [React router](https://reactrouter.com/) - collection of navigational components.
+* [Webpack](https://webpack.js.org/) - is used to compile JavaScript modules.
+* [Babel](https://babeljs.io/) - to be able to use a new generation of javascript.
+* [Ts lint](https://github.com/palantir/tslint) - extensible static analysis tool that checks TypeScript code for readability, maintainability, and functionality errors.
+* [Jest](https://jestjs.io/) - testing Framework.
 * [Redux saga test plan](https://github.com/jfairbank/redux-saga-test-plan) - makes testing sagas a breeze.
-* [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js.
-* [Axios mock adapter](https://github.com/ctimmerm/axios-mock-adapter) - Axios adapter that allows to easily mock requests.
-* [Lodash](https://lodash.com/) - A modern JavaScript utility library delivering modularity, performance & extras.
-* [I18next](https://www.i18next.com/) - Internationalization-framework.
-* [Css modules](https://github.com/css-modules/css-modules) - To solve the css class namespace problem.
+* [Axios](https://github.com/axios/axios) - promise based HTTP client for the browser and node.js.
+* [Axios mock adapter](https://github.com/ctimmerm/axios-mock-adapter) - allows to easily mock requests.
+* [Lodash](https://lodash.com/) - a modern JavaScript utility library delivering modularity, performance & extras.
+* [I18next](https://www.i18next.com/) - internationalization-framework.
+* [CSS modules](https://github.com/css-modules/css-modules) - to solve the css class namespace problem.
 * [Sass](https://sass-lang.com/) - CSS with superpowers.
-* [Storybook](https://storybook.js.org/) - Storybook is an open source tool for developing UI components in isolation.
+* [Storybook](https://storybook.js.org/) - is an open source tool for developing UI components in isolation.
 
 ### Testing
 ##### Test files are created next to files of components, functions, and classes
@@ -99,6 +99,7 @@ npm run build-storybook
         * config - configuring for the api
         * fetcher - implementation for interacting with the server
         * paths - api paths
+    * assets (fonts, images, styles)
     * components
         * app - main component
         * common - common components for the entire application
@@ -145,11 +146,7 @@ npm run build-storybook
         * router - this file responsible for connecting root (page) components
         * routes - this file contains all the application paths
     * services - services for interacting with the server for entities
-    * shared
-        *  fonts - contains fonts
-        *  images - contains images and icons
-        *  styles - contains global styles and variables
-    *  store - contains reducers, actions, selectors, sagas, states separately for each entity and their tests
+    * store - contains reducers, actions, selectors, sagas, states separately for each entity and their tests
         ```
             posts
                 * action
