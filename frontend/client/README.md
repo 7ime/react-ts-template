@@ -137,7 +137,7 @@ npm run build-storybook
             ```
     * constants - common constant
     * entities - stores entity models and DTO that come from the server
-    * helpers - clean reused functions
+    * helpers - reused functions
     * i18n - setup, translations for internationalization
     * models - various reused interfaces, types
     * routing
