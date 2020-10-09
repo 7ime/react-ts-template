@@ -25,7 +25,7 @@ export function* getPost(action: JsonPlaceholderAction.IGetPost) {
 
         yield put(JsonPlaceholderAction.getPostSuccess(response))
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 

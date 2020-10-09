@@ -1,7 +1,6 @@
 import * as React from 'react'
 import {Helmet} from 'react-helmet'
 import {IRouting} from '@routing/model'
-import css from 'index.module.scss'
 import RestApi from './components/rest-api'
 
 interface IProps extends IRouting.Props {

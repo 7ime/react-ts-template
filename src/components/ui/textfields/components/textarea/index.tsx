@@ -20,7 +20,6 @@ const Textarea = (props: ITextField.TextareaProps) => {
         isSuccess,
         successMessage,
         value,
-        isFocused,
         nodeEl,
         autofocus,
         classNames

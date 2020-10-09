@@ -3,16 +3,16 @@ const customConfig = require('../configs/webpack/storybook.config.js')();
 module.exports = {
     stories: ['../src/**/*.stories.@(tsx|ts)'],
     addons: [
-        '@storybook/addon-actions',
-        '@storybook/addon-controls',
-        '@storybook/addon-links',
-        '@storybook/addon-viewport',
         {
             name: '@storybook/addon-docs',
             options: {
                 configureJSX: true,
             },
-        }
+        },
+        '@storybook/addon-actions',
+        '@storybook/addon-controls',
+        '@storybook/addon-links',
+        '@storybook/addon-viewport'
     ],
     webpackFinal: (config) => {
         return {

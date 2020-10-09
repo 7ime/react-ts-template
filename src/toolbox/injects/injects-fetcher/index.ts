@@ -1,5 +1,5 @@
 import fetcher from '@api/fetcher'
 
-export const injectPropertyFetcher = (target: Object, propertyKey: string): void => {
-    (target as any)[propertyKey] = fetcher
+export const injectPropertyFetcher = (target: any, propertyKey: string): void => {
+    target[propertyKey] = fetcher
 }

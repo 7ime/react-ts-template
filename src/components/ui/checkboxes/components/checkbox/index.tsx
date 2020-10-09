@@ -20,7 +20,7 @@ const Checkbox = (props: ICheckbox.Props) => {
     const [isSuccess, successMessage] = success
 
     const [checked, setChecked] = React.useState(externalChecked)
-    const [uuidCheckbox, setUuidCheckbox] = React.useState(uuid())
+    const [uuidCheckbox] = React.useState(uuid())
 
     React.useEffect(() => {
         setChecked(externalChecked)

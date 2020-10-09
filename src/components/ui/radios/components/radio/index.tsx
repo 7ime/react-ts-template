@@ -22,7 +22,7 @@ const Radio = (props: IRadio.ButtonProps) => {
     const [isSuccess] = success
 
     const [checked, setChecked] = React.useState(externalChecked)
-    const [uuidRadio, setUuidRadio] = React.useState(uuid())
+    const [uuidRadio] = React.useState(uuid())
 
     React.useEffect(() => {
         setChecked(externalChecked)

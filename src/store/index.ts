@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware, compose, StoreCreator} from 'redux'
+import {createStore, applyMiddleware, compose} from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import {environment} from '@toolbox/environment'
 import crashDispatchLoggerMiddleware from '@toolbox/middleware/crash-dispatch-logger'
