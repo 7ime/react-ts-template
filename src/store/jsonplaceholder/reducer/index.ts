@@ -23,12 +23,6 @@ export const reducer = (state: JsonPlaceholderState.IState = JsonPlaceholderStat
                 isGetPostsError: true
             }
         }
-        case JsonPlaceholderAction.EActions.GetPostSuccess: {
-            return {
-                ...state,
-                post: action.payload
-            }
-        }
         case JsonPlaceholderAction.EActions.ResetState: {
             return JsonPlaceholderState.initialState
         }

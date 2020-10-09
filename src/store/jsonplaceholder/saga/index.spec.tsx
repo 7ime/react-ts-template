@@ -21,17 +21,4 @@ describe('jsonPlaceholder saga', () => {
             .run()
             .then((result: ISagaTestRunResult<JsonPlaceholderState.IState>) => expect(result.storeState.posts).toEqual(response))
     })
-
-    it('getPost', () => {
-        const id = 999
-        const response: IJsonPlaceholder.ModelDTO = MockJsonPlaceholder.modelDTO({id})
-
-        return expectSaga(JsonPlaceholderSaga.getPost, JsonPlaceholderAction.getPost(id)).provide([
-            [call(service.jsonPlaceholderService.getPost, id), response]
-        ])
-            .withReducer<JsonPlaceholderState.IState>(JsonPlaceholderReducer.reducer, JsonPlaceholderState.initialState)
-            .dispatch(JsonPlaceholderAction.getPost(id))
-            .run()
-            .then((result: ISagaTestRunResult<JsonPlaceholderState.IState>) => expect(result.storeState.post).toEqual(response))
-    })
 })

@@ -5,8 +5,6 @@ export enum EActions {
     GetPosts = '[JsonPlaceholder] GetPosts',
     GetPostsSuccess = '[JsonPlaceholder] GetPostsSuccess',
     GetPostsError = '[JsonPlaceholder] GetPostsError',
-    GetPost = '[JsonPlaceholder] GetPost',
-    GetPostSuccess = '[JsonPlaceholder] GetPostSuccess',
     ResetState = '[JsonPlaceholder] ResetState'
 }
 
@@ -35,24 +33,6 @@ export const getPostsError = (): IGetPostsError => {
     }
 }
 
-export type IGetPost = IAction<EActions.GetPost, number>
-
-export const getPost = (payload: number): IGetPost => {
-    return {
-        type: EActions.GetPost,
-        payload
-    }
-}
-
-export type IGetPostSuccess = IAction<EActions.GetPostSuccess, IJsonPlaceholder.ModelDTO>
-
-export const getPostSuccess = (payload: IJsonPlaceholder.ModelDTO): IGetPostSuccess => {
-    return {
-        type: EActions.GetPostSuccess,
-        payload
-    }
-}
-
 export type IResetState = IAction<EActions.ResetState>
 
 export const resetState = (): IResetState => {
@@ -65,6 +45,4 @@ export type IActions =
     IGetPosts |
     IGetPostsSuccess |
     IGetPostsError |
-    IGetPost |
-    IGetPostSuccess |
     IResetState

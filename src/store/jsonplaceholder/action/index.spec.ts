@@ -35,27 +35,6 @@ describe('jsonPlaceholder actions', () => {
         expect(JsonPlaceholderAction.getPostsError()).toEqual(expected)
     })
 
-    it('getPost', () => {
-
-        const expected: JsonPlaceholderAction.IGetPost = {
-            type: JsonPlaceholderAction.EActions.GetPost,
-            payload: 1
-        }
-
-        expect(JsonPlaceholderAction.getPost(1)).toEqual(expected)
-    })
-
-    it('getPostSuccess', () => {
-        const payload: IJsonPlaceholder.ModelDTO = MockJsonPlaceholder.modelDTO()
-
-        const expected: JsonPlaceholderAction.IGetPostSuccess = {
-            type: JsonPlaceholderAction.EActions.GetPostSuccess,
-            payload
-        }
-
-        expect(JsonPlaceholderAction.getPostSuccess(payload)).toEqual(expected)
-    })
-
     it('resetState', () => {
 
         const expected: JsonPlaceholderAction.IResetState = {

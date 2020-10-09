@@ -20,7 +20,6 @@ const RestApi = (props: IProps) => {
 
     React.useEffect(() => {
         const fetchData = async() => {
-            dispatch(JsonPlaceholderAction.getPost(1))
             dispatch(JsonPlaceholderAction.getPosts())
 
             await jsonPlaceholderService.deletePost(1)
