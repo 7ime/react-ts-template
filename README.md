@@ -148,7 +148,7 @@ npm run build-storybook
         * router - this file responsible for connecting root (page) components
         * routes - this file contains all the application paths
     * services - services for interacting with the server for entities
-    * store - contains reducers, actions, selectors, sagas, states separately for each entity and their tests
+    * store - contains redux configuration and reducers, actions, selectors, sagas, states separately for each entity and their tests
         ```
             posts
                 * action
