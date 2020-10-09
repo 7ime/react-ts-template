@@ -11,6 +11,10 @@ import ServiceContext from './components/context/service-context'
 import HelmetSet from './components/common/helmet-set'
 import App from './components/app'
 import '@i18n/index'
+import saga from '@store/saga'
+import {sagaMiddleware} from '@store/middleware'
+
+sagaMiddleware.run(saga)
 
 ReactDOM.render((
     <Provider store={getAppStore()}>

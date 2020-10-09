@@ -13,7 +13,7 @@ describe('jsonPlaceholder saga', () => {
     it('getPosts', () => {
         const response: IJsonPlaceholder.ModelDTO[] = [MockJsonPlaceholder.modelDTO({id: 99})]
 
-        return expectSaga(JsonPlaceholderSaga.getPosts, JsonPlaceholderAction.getPosts()).provide([
+        return expectSaga(JsonPlaceholderSaga.getPosts).provide([
             [call(service.jsonPlaceholderService.getPosts), response]
         ])
             .withReducer<JsonPlaceholderState.IState>(JsonPlaceholderReducer.reducer, JsonPlaceholderState.initialState)

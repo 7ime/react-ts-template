@@ -1,10 +1,8 @@
-import {combineReducers} from 'redux'
-import {JsonPlaceholderState, JsonPlaceholderReducer} from './jsonplaceholder'
+import {combineReducers} from '@reduxjs/toolkit'
+import {JsonPlaceholderReducer} from './jsonplaceholder'
 
-export interface IAppState {
-    jsonPlaceholder: JsonPlaceholderState.IState
-}
-
-export const appReducer = combineReducers<IAppState>({
+export const appReducer = combineReducers({
     jsonPlaceholder: JsonPlaceholderReducer.reducer
 })
+
+export type IAppState = ReturnType<typeof appReducer>

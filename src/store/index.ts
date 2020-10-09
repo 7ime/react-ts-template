@@ -1,18 +1,13 @@
-import {createStore, applyMiddleware, compose} from 'redux'
-import createSagaMiddleware from 'redux-saga'
+import {configureStore} from '@reduxjs/toolkit'
 import {environment} from '@toolbox/environment'
-import crashDispatchLoggerMiddleware from '@toolbox/middleware/crash-dispatch-logger'
 import {appReducer} from './app-reducer'
-import {JsonPlaceholderSaga} from './jsonplaceholder'
+import {getMiddleware} from '@store/middleware'
 
-const sagaMiddleware = createSagaMiddleware()
-
-const appStore = createStore(appReducer, compose(
-    applyMiddleware(sagaMiddleware, crashDispatchLoggerMiddleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && environment.development ?  window.__REDUX_DEVTOOLS_EXTENSION__() : (f: Function) => f
-))
-
-sagaMiddleware.run(JsonPlaceholderSaga.rootSaga)
+const appStore = configureStore({
+    reducer: appReducer,
+    devTools: environment.development,
+    middleware: getMiddleware()
+})
 
 const getAppStore = () => appStore
 

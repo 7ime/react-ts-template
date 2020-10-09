@@ -5,7 +5,7 @@ import {JsonPlaceholderAction} from '../index'
 
 const service: IService = getService()
 
-export function* getPosts(action: JsonPlaceholderAction.IGetPosts) {
+export function* getPosts() {
     try {
         const response = yield call(service.jsonPlaceholderService.getPosts)
 
@@ -16,7 +16,7 @@ export function* getPosts(action: JsonPlaceholderAction.IGetPosts) {
 }
 
 function* getPostsSaga() {
-    yield takeLatest(JsonPlaceholderAction.EActions.GetPosts, getPosts)
+    yield takeLatest([JsonPlaceholderAction.getPosts], getPosts)
 }
 
 export function* rootSaga() {

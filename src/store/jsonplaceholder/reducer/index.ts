@@ -1,32 +1,20 @@
 import {JsonPlaceholderAction, JsonPlaceholderState} from '../index'
+import {createReducer} from '@reduxjs/toolkit'
 
-export const reducer = (state: JsonPlaceholderState.IState = JsonPlaceholderState.initialState,
-                        action: JsonPlaceholderAction.IActions): JsonPlaceholderState.IState => {
-    switch (action.type) {
-        case JsonPlaceholderAction.EActions.GetPosts: {
-            return {
-                ...state,
-                isLoadingPosts: true
-            }
-        }
-        case JsonPlaceholderAction.EActions.GetPostsSuccess: {
-            return {
-                ...state,
-                isLoadingPosts: false,
-                posts: action.payload
-            }
-        }
-        case JsonPlaceholderAction.EActions.GetPostsError: {
-            return {
-                ...state,
-                isLoadingPosts: false,
-                isGetPostsError: true
-            }
-        }
-        case JsonPlaceholderAction.EActions.ResetState: {
+export const reducer = createReducer(JsonPlaceholderState.initialState, (builder) => {
+    builder
+        .addCase(JsonPlaceholderAction.getPosts, (state) => {
+            state.isLoadingPosts = true
+        })
+        .addCase(JsonPlaceholderAction.getPostsSuccess, (state, {payload}) => {
+            state.isLoadingPosts = false
+            state.posts = payload
+        })
+        .addCase(JsonPlaceholderAction.getPostsError, (state) => {
+            state.isLoadingPosts = false
+            state.isGetPostsError = true
+        })
+        .addCase(JsonPlaceholderAction.resetState, (state) => {
             return JsonPlaceholderState.initialState
-        }
-        default:
-            return state
-    }
-}
+        })
+})

@@ -1,5 +1,5 @@
 import {IJsonPlaceholder} from '@entities/jsonplaceholder'
-import {IAction} from '../../model'
+import {createAction} from '@reduxjs/toolkit'
 
 export enum EActions {
     GetPosts = '[JsonPlaceholder] GetPosts',
@@ -8,41 +8,7 @@ export enum EActions {
     ResetState = '[JsonPlaceholder] ResetState'
 }
 
-export type IGetPosts = IAction<EActions.GetPosts>
-
-export const getPosts = (): IGetPosts => {
-    return {
-        type: EActions.GetPosts
-    }
-}
-
-export type IGetPostsSuccess = IAction<EActions.GetPostsSuccess, IJsonPlaceholder.ModelDTO[]>
-
-export const getPostsSuccess = (payload: IJsonPlaceholder.ModelDTO[]): IGetPostsSuccess => {
-    return {
-        type: EActions.GetPostsSuccess,
-        payload
-    }
-}
-
-export type IGetPostsError = IAction<EActions.GetPostsError>
-
-export const getPostsError = (): IGetPostsError => {
-    return {
-        type: EActions.GetPostsError
-    }
-}
-
-export type IResetState = IAction<EActions.ResetState>
-
-export const resetState = (): IResetState => {
-    return {
-        type: EActions.ResetState
-    }
-}
-
-export type IActions =
-    IGetPosts |
-    IGetPostsSuccess |
-    IGetPostsError |
-    IResetState
+export const getPosts = createAction(EActions.GetPosts)
+export const getPostsSuccess = createAction<IJsonPlaceholder.ModelDTO[]>(EActions.GetPostsSuccess)
+export const getPostsError = createAction(EActions.GetPostsError)
+export const resetState = createAction(EActions.ResetState)

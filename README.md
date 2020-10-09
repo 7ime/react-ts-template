@@ -46,6 +46,7 @@ npm run build-storybook
 * [TypeScript](https://typescriptlang.org/) - primary Language.
 * [React.js](https://reactjs.org/) - library for building user interfaces.
 * [Redux](https://redux.js.org/) - managing app state.
+* [Redux toolkit](https://redux-toolkit.js.org/) - the official, opinionated, batteries-included toolset for efficient Redux development.
 * [Redux-saga](https://redux-saga.js.org/) - library that aims to make application side effects.
 * [Reselect](https://github.com/reduxjs/reselect) - simple “selector” library for Redux.
 * [React router](https://reactrouter.com/) - collection of navigational components.
