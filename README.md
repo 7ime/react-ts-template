@@ -47,7 +47,7 @@ npm run build-storybook
 * [React.js](https://reactjs.org/) - library for building user interfaces.
 * [Redux](https://redux.js.org/) - managing app state.
 * [Redux toolkit](https://redux-toolkit.js.org/) - the official, opinionated, batteries-included toolset for efficient Redux development.
-* [Redux-saga](https://redux-saga.js.org/) - library that aims to make application side effects.
+* [Redux saga](https://redux-saga.js.org/) - library that aims to make application side effects.
 * [Reselect](https://github.com/reduxjs/reselect) - simple “selector” library for Redux.
 * [React router](https://reactrouter.com/) - collection of navigational components.
 * [Webpack](https://webpack.js.org/) - is used to compile JavaScript modules.
