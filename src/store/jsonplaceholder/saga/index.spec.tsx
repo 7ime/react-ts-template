@@ -5,6 +5,7 @@ import getService from '@services/index'
 import {call} from 'redux-saga-test-plan/matchers'
 import {JsonPlaceholderAction, JsonPlaceholderState, JsonPlaceholderReducer, JsonPlaceholderSaga} from '../index'
 import {ISagaTestRunResult} from '@toolbox/tests/model/shared'
+import {Action} from 'redux'
 
 const service = getService()
 
@@ -16,7 +17,7 @@ describe('jsonPlaceholder saga', () => {
         return expectSaga(JsonPlaceholderSaga.getPosts).provide([
             [call(service.jsonPlaceholderService.getPosts), response]
         ])
-            .withReducer<JsonPlaceholderState.IState>(JsonPlaceholderReducer.reducer, JsonPlaceholderState.initialState)
+            .withReducer<JsonPlaceholderState.IState, Action>(JsonPlaceholderReducer.reducer, JsonPlaceholderState.initialState)
             .dispatch(JsonPlaceholderAction.getPosts())
             .run()
             .then((result: ISagaTestRunResult<JsonPlaceholderState.IState>) => expect(result.storeState.posts).toEqual(response))
