@@ -6,15 +6,20 @@ import localesWelcomeRU from '@i18n/locales/ru/welcome.json'
 import localesSharedEN from '@i18n/locales/en/shared.json'
 import localesSharedRU from '@i18n/locales/ru/shared.json'
 
+import localesNavEN from '@i18n/locales/en/nav.json'
+import localesNavRU from '@i18n/locales/ru/nav.json'
+
 export type II18nResources = Record<EI18nLanguages, Record<EI18nNameSpaces, Record<string, unknown>>>
 
 export const i18nResources: II18nResources = {
     [EI18nLanguages.EN]: {
         [EI18nNameSpaces.welcome]: localesWelcomeEN,
         [EI18nNameSpaces.shared]: localesSharedEN,
+        [EI18nNameSpaces.nav]: localesNavEN,
     },
     [EI18nLanguages.RU]: {
         [EI18nNameSpaces.welcome]: localesWelcomeRU,
         [EI18nNameSpaces.shared]: localesSharedRU,
+        [EI18nNameSpaces.nav]: localesNavRU,
     }
 }
