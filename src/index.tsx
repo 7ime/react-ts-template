@@ -17,12 +17,14 @@ import {sagaMiddleware} from '@store/middleware'
 sagaMiddleware.run(saga)
 
 ReactDOM.render((
-    <Provider store={getAppStore()}>
-        <ServiceContext.Provider value={getService()}>
-            <BrowserRouter>
-                <HelmetSet/>
-                <App/>
-            </BrowserRouter>
-        </ServiceContext.Provider>
-    </Provider>
+    <React.StrictMode>
+        <Provider store={getAppStore()}>
+            <ServiceContext.Provider value={getService()}>
+                <BrowserRouter>
+                    <HelmetSet/>
+                    <App/>
+                </BrowserRouter>
+            </ServiceContext.Provider>
+        </Provider>
+    </React.StrictMode>
 ), document.getElementById('root'))
