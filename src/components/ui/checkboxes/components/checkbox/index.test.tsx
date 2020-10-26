@@ -59,7 +59,7 @@ describe('test checkbox', () => {
         expect(checkbox.classList.contains(css.is_success)).toBeFalsy()
     })
 
-    it('success', () => {
+    test('success', () => {
         const {container, getByText} = render(<Checkbox checked onChange={jest.fn} success={[true, ['success message']]}>{checkboxTestText}</Checkbox>)
 
         const checkbox = container.querySelector('.checkbox') as HTMLElement
