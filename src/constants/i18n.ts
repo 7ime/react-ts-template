@@ -6,5 +6,6 @@ export enum EI18nLanguages {
 }
 
 export enum EI18nNameSpaces {
-    welcome = 'welcome'
+    welcome = 'welcome',
+    shared = 'shared',
 }
