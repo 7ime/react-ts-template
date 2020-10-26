@@ -70,14 +70,14 @@ npm run build-storybook
 ```
     button
         * index.tsx
-        * index.spec.tsx
+        * index.test.tsx
 ```
 
 - For functions or classes
 ```
     invariant
         * index.ts
-        * index.spec.ts
+        * index.test.ts
 ```
 
 ### Storybook
@@ -114,10 +114,10 @@ npm run build-storybook
                     * components (for this scene)
                         * presentation
                             * index.tss
-                            * index.spec.tsx
+                            * index.test.tsx
                             * index.stories.tsx
                     * index.tsx
-                    * index.spec.tsx
+                    * index.test.tsx
                     * index.stories.tsx
                     * index.module.scss
             ```
@@ -127,11 +127,11 @@ npm run build-storybook
                     * components
                         * button
                             * index.tsx
-                            * index.spec.tsx
+                            * index.test.tsx
                             * index.stories.tsx
                         * buttonLink
                             * index.tsx
-                            * index.spec.tsx
+                            * index.test.tsx
                             * index.stories.tsx
                     * model
                         * index.ts
@@ -153,16 +153,16 @@ npm run build-storybook
             posts
                 * action
                     * index.ts
-                    * index.spec.ts
+                    * index.test.ts
                 * saga
                     * index.ts
-                    * index.spec.ts
+                    * index.test.ts
                 * reducer
                     * index.ts
-                    * index.spec.ts
+                    * index.test.ts
                 * selector
                     * index.ts
-                    * index.spec.ts
+                    * index.test.ts
                 * state
                     * index.ts
         ```
