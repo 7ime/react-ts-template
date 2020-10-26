@@ -12,7 +12,7 @@ describe('test checkbox', () => {
         cleanup()
     })
 
-    it('primary type', () => {
+    test('primary type', () => {
         const {container} = render(<Checkbox checked type={'primary'} onChange={jest.fn}>{checkboxTestText}</Checkbox>)
 
         const checkbox = container.querySelector('.checkbox') as HTMLElement
@@ -21,7 +21,7 @@ describe('test checkbox', () => {
         expect(checkbox.classList.contains(css.secondary)).toBeFalsy()
     })
 
-    it('secondary type', () => {
+    test('secondary type', () => {
         const {container} = render(<Checkbox checked type={'secondary'} onChange={jest.fn}>{checkboxTestText}</Checkbox>)
 
         const checkbox = container.querySelector('.checkbox') as HTMLElement
@@ -30,7 +30,7 @@ describe('test checkbox', () => {
         expect(checkbox.classList.contains(css.primary)).toBeFalsy()
     })
 
-    it('checked', () => {
+    test('checked', () => {
         const {container} = render(<Checkbox checked onChange={jest.fn}>{checkboxTestText}</Checkbox>)
 
         const checkbox = container.querySelector('.checkbox') as HTMLElement
@@ -40,7 +40,7 @@ describe('test checkbox', () => {
         expect(checkbox.classList.contains(css.is_checked)).toBeTruthy()
     })
 
-    it('disabled', () => {
+    test('disabled', () => {
         const {container} = render(<Checkbox checked disabled onChange={jest.fn}>{checkboxTestText}</Checkbox>)
 
         const checkbox = container.querySelector('.checkbox') as HTMLElement
@@ -49,7 +49,7 @@ describe('test checkbox', () => {
     })
 
 
-    it('error', () => {
+    test('error', () => {
         const {container, getByText} = render(<Checkbox checked onChange={jest.fn} error={[true, ['error message']]}>{checkboxTestText}</Checkbox>)
 
         const checkbox = container.querySelector('.checkbox') as HTMLElement

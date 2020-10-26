@@ -4,7 +4,7 @@ import {insertByPosition} from './index'
 describe('testing fn insertByPosition', () => {
     const testID = 99
 
-    it.each([
+    test.each([
         [[1, 2, 3], 3, [1, 2, testID, 3]],
         [[1, 2, 3], 2, [1, testID, 2, 3]],
         [[1, 2, 3], 1, [testID, 1, 2, 3]],
@@ -13,7 +13,7 @@ describe('testing fn insertByPosition', () => {
         expect(result).toEqual(equalSrc)
     })
 
-    it.each([
+    test.each([
         [[1, 2, 3], 3, [1, 2, 3, testID]],
         [[1, 2, 3], 2, [1, 2, testID, 3]],
         [[1, 2, 3], 1, [1, testID, 2, 3]],
@@ -22,17 +22,17 @@ describe('testing fn insertByPosition', () => {
         expect(result).toEqual(equalSrc)
     })
 
-    it('testing inserting into an array at the end if there is no anchor and position', () => {
+    test('testing inserting into an array at the end if there is no anchor and position', () => {
         const result = insertByPosition([1, 2, 3], testID)
         expect(result).toEqual([1, 2, 3, testID])
     })
 
-    it('testing inserting into an array by anchor but without position', () => {
+    test('testing inserting into an array by anchor but without position', () => {
         const result = insertByPosition([1, 2, 3], testID, 3)
         expect(result).toEqual([1, 2, 3, testID])
     })
 
-    it('testing inserting into an array without an anchor but with a position', () => {
+    test('testing inserting into an array without an anchor but with a position', () => {
         const result = insertByPosition([1, 2, 3], testID, undefined, EPosition.AFTER)
         expect(result).toEqual([1, 2, 3, testID])
     })

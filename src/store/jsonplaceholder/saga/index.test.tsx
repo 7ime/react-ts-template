@@ -11,7 +11,7 @@ const service = getService()
 
 describe('jsonPlaceholder saga', () => {
 
-    it('getPosts', () => {
+    test('getPosts', () => {
         const response: IJsonPlaceholder.ModelDTO[] = [MockJsonPlaceholder.modelDTO({id: 99})]
 
         return expectSaga(JsonPlaceholderSaga.getPosts).provide([

@@ -3,11 +3,11 @@ import MockJsonPlaceholder from '@__mocks__/jsonplaceholder'
 
 describe('jsonPlaceholder reducer', () => {
 
-    it('should return the initial state', () => {
+    test('should return the initial state', () => {
         expect(JsonPlaceholderReducer.reducer(undefined, {} as any)).toEqual(JsonPlaceholderState.initialState)
     })
 
-    it('should handle EActions.GetPosts', () => {
+    test('should handle EActions.GetPosts', () => {
         expect(JsonPlaceholderReducer.reducer(
             JsonPlaceholderState.initialState,
             JsonPlaceholderAction.getPosts()
@@ -16,7 +16,7 @@ describe('jsonPlaceholder reducer', () => {
         })
     })
 
-    it('should handle EActions.GetPostsSuccess', () => {
+    test('should handle EActions.GetPostsSuccess', () => {
         const posts = [MockJsonPlaceholder.modelDTO()]
 
         expect(JsonPlaceholderReducer.reducer(
@@ -28,7 +28,7 @@ describe('jsonPlaceholder reducer', () => {
         })
     })
 
-    it('should handle EActions.ResetState', () => {
+    test('should handle EActions.ResetState', () => {
         expect(JsonPlaceholderReducer.reducer(
             {
                 ...JsonPlaceholderState.initialState,

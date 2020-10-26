@@ -4,14 +4,14 @@ import {IAppState} from '../../app-reducer'
 import MockAppState from '@__mocks__/app-state'
 
 describe('jsonPlaceholder selector', () => {
-    it('getTotalCountOfPosts when posts not exist', () => {
+    test('getTotalCountOfPosts when posts not exist', () => {
         const state: IAppState = MockAppState.initialAppState()
 
         const result = JsonPlaceholderSelector.getTotalCountOfPosts(state)
         expect(result).toBeNull()
     })
 
-    it('getTotalCountOfPosts when posts exist', () => {
+    test('getTotalCountOfPosts when posts exist', () => {
         const state: IAppState = {
             ...MockAppState.initialAppState(),
             jsonPlaceholder: {

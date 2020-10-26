@@ -18,7 +18,7 @@ describe('testing jsonPlaceholderService', () => {
         axiosMockAdapter.reset()
     })
 
-    it('testing getPosts', async() => {
+    test('testing getPosts', async() => {
         axiosMockAdapter.onGet(Paths.JsonPlaceholder.getPosts()).reply(200, [
             MockJsonPlaceholder.modelDTO()
         ])
@@ -28,7 +28,7 @@ describe('testing jsonPlaceholderService', () => {
         expect(response).toContainEqual(expect.objectContaining(jsonPlaceholderMatcher))
     })
 
-    it('testing getPost', async() => {
+    test('testing getPost', async() => {
         axiosMockAdapter.onGet(Paths.JsonPlaceholder.getPost(3)).reply(200, MockJsonPlaceholder.modelDTO())
 
         const response = await instanceService.getPost(3)

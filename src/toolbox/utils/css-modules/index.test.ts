@@ -6,7 +6,7 @@ describe('testing CSSModules', () => {
         secondary: 'secondary___123'
     }
 
-    it.each([
+    test.each([
         [['primary'], cssMock, [cssMock.primary]],
         [['secondary'], cssMock, [cssMock.secondary]]
     ])('extractClassNamesForArray - exist', (classNames, css, expectedResult) => {
@@ -14,7 +14,7 @@ describe('testing CSSModules', () => {
         expect(result).toEqual(expectedResult)
     })
 
-    it('extractClassNamesForArray - not exist', () => {
+    test('extractClassNamesForArray - not exist', () => {
         const result = CSSModules.extractClassNamesForArray(['test'], cssMock)
 
         expect(result).toEqual([''])

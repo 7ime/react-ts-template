@@ -2,13 +2,13 @@ import {JsonPlaceholderAction} from '../index'
 
 describe('jsonPlaceholder actions', () => {
 
-    it('getPosts', () => {
+    test('getPosts', () => {
         const action = JsonPlaceholderAction.getPosts()
 
         expect(action.type).toEqual(JsonPlaceholderAction.EActions.GetPosts)
     })
 
-    it('getPostsSuccess', () => {
+    test('getPostsSuccess', () => {
         const {type, payload} = JsonPlaceholderAction.getPostsSuccess([])
 
         expect({
@@ -20,13 +20,13 @@ describe('jsonPlaceholder actions', () => {
         })
     })
 
-    it('getPostsError', () => {
+    test('getPostsError', () => {
         const action = JsonPlaceholderAction.getPostsError()
 
         expect(action.type).toEqual(JsonPlaceholderAction.EActions.GetPostsError)
     })
 
-    it('resetState', () => {
+    test('resetState', () => {
         const action = JsonPlaceholderAction.resetState()
 
         expect(action.type).toEqual(JsonPlaceholderAction.EActions.ResetState)

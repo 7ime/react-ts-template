@@ -1,13 +1,13 @@
 import {invariant} from './index'
 
 describe('testing fn invariant', () => {
-    it('success', () => {
+    test('success', () => {
         const result = invariant(true, 'error message')
 
         expect(result).toBeUndefined()
     })
 
-    it('error', () => {
+    test('error', () => {
         const message = 'error message'
 
         expect(() => invariant(false, message)).toThrowError(message)
