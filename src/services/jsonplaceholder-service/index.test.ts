@@ -19,6 +19,8 @@ describe('testing jsonPlaceholderService', () => {
     })
 
     test('testing getPosts', async() => {
+        expect.hasAssertions()
+
         axiosMockAdapter.onGet(Paths.JsonPlaceholder.getPosts()).reply(200, [
             MockJsonPlaceholder.modelDTO()
         ])
@@ -29,6 +31,8 @@ describe('testing jsonPlaceholderService', () => {
     })
 
     test('testing getPost', async() => {
+        expect.hasAssertions()
+
         axiosMockAdapter.onGet(Paths.JsonPlaceholder.getPost(3)).reply(200, MockJsonPlaceholder.modelDTO())
 
         const response = await instanceService.getPost(3)
