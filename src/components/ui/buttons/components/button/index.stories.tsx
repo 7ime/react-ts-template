@@ -11,6 +11,10 @@ export const Default = () => {
     return <Button>Default</Button>
 }
 
+export const Link = () => {
+    return <Button href={'#'}>Link</Button>
+}
+
 export const Primary = () => {
     return <Button type={'primary'}>Primary</Button>
 }

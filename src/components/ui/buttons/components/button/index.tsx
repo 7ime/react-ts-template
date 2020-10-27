@@ -5,13 +5,15 @@ import Loader from '../../../loaders/components/loader'
 import {ELoaderPosition} from '@constants/shared'
 import css from '../../styles/button.module.scss'
 
-const Button = (props: IButton.ButtonProps) => {
+const Button = (props: IButton.Props) => {
     const {
+        href,
+        target = '_self',
+        htmlType = 'button',
         loader,
         loaderPosition = ELoaderPosition.center,
         type = '',
         shape = '',
-        htmlType = 'button',
         disabled,
         children,
         parentClass,
@@ -28,11 +30,22 @@ const Button = (props: IButton.ButtonProps) => {
         parentClass
     )
 
+    const TagName = href ? 'a' : 'button'
+
+    const propsDependingOnTag: Record<string, string> = {}
+
+    if (href) {
+        propsDependingOnTag.href = href
+        propsDependingOnTag.target = target
+    } else {
+        propsDependingOnTag.type = htmlType
+    }
+
     return (
-        <button className={classNames} {...restProps} type={htmlType}>
+        <TagName className={classNames} {...restProps} {...propsDependingOnTag}>
             {children}
             {loader && <div className={css.loaderComponent}><Loader/></div>}
-        </button>
+        </TagName>
     )
 }
 
