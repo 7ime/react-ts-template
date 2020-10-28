@@ -6,6 +6,8 @@ import {IRouting} from '@routing/model'
 import css from './index.module.scss'
 import Routes from '@routing/routes'
 import Loader from '../ui/loaders/components/loader'
+import {useDispatch} from 'react-redux'
+import {UiAction} from '@store/ui'
 
 const getLoaderElem = () => {
     return (
@@ -16,6 +18,12 @@ const getLoaderElem = () => {
 }
 
 const App = () => {
+    const dispatch = useDispatch()
+
+    React.useEffect(() => {
+        dispatch(UiAction.removePreloader())
+    }, [])
+
     const isLogged = true
 
     return (

@@ -1,8 +1,10 @@
 import {IService} from './model'
 import JsonPlaceholderService from './jsonplaceholder-service'
+import UiService from '@services/ui-service'
 
 class Service implements IService {
-    public jsonPlaceholderService = new JsonPlaceholderService()
+    jsonPlaceholderService = new JsonPlaceholderService()
+    uiService = new UiService()
 }
 
 const service = new Service()
