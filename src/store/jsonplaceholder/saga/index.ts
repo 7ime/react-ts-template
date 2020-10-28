@@ -1,17 +1,21 @@
-import {call, put, takeLatest} from 'redux-saga/effects'
+import {call, put, takeLatest, select} from 'redux-saga/effects'
 import getService from '@services/index'
 import {IService} from '@services/model'
-import {JsonPlaceholderAction} from '../index'
+import {JsonPlaceholderAction, JsonPlaceholderSelector} from '../index'
 
 const service: IService = getService()
 
 export function* getPosts() {
-    try {
-        const response = yield call(service.jsonPlaceholderService.getPosts)
+    const posts = yield select(JsonPlaceholderSelector.getPosts)
 
-        yield put(JsonPlaceholderAction.getPostsSuccess(response))
-    } catch (error) {
-        yield put(JsonPlaceholderAction.getPostsError())
+    if (!posts) {
+        try {
+            const response = yield call(service.jsonPlaceholderService.getPosts)
+
+            yield put(JsonPlaceholderAction.getPostsSuccess(response))
+        } catch (error) {
+            yield put(JsonPlaceholderAction.getPostsError())
+        }
     }
 }
 
