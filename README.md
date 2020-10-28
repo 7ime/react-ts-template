@@ -62,6 +62,7 @@ npm run build-storybook
 * [CSS modules](https://github.com/css-modules/css-modules) - to solve the css class namespace problem.
 * [Sass](https://sass-lang.com/) - CSS with superpowers.
 * [Storybook](https://storybook.js.org/) - is an open source tool for developing UI components in isolation.
+* [React detect device](https://github.com/duskload/react-device-detect) - detect device
 
 ### Testing
 ##### Test files are created next to files of components, functions, and classes
@@ -168,6 +169,7 @@ npm run build-storybook
         ```
     * toolbox
         * custom-types - own type
+        * device - this folder contains info device (platform, type browser and etc)
         * environment - setting up the environment (prod, dev, test)
         * injects - this folder contains decorators to embed the functionality
         * middleware - redux middleware
