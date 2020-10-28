@@ -8,6 +8,7 @@ import Routes from '@routing/routes'
 import Loader from '../ui/loaders/components/loader'
 import {useDispatch} from 'react-redux'
 import {UiAction} from '@store/ui'
+import {WebNotificationAction} from '@store/web-notification'
 
 const getLoaderElem = () => {
     return (
@@ -22,6 +23,7 @@ const App = () => {
 
     React.useEffect(() => {
         dispatch(UiAction.removePreloader())
+        dispatch(WebNotificationAction.requestPermission())
     }, [])
 
     const isLogged = true
