@@ -1,4 +1,4 @@
-import {call, put, all, takeLatest} from 'redux-saga/effects'
+import {call, put, takeLatest} from 'redux-saga/effects'
 import getService from '@services/index'
 import {IService} from '@services/model'
 import {JsonPlaceholderAction} from '../index'
@@ -15,12 +15,6 @@ export function* getPosts() {
     }
 }
 
-function* getPostsSaga() {
-    yield takeLatest([JsonPlaceholderAction.getPosts], getPosts)
-}
-
 export function* rootSaga() {
-    yield all([
-        getPostsSaga()
-    ])
+    yield takeLatest([JsonPlaceholderAction.getPosts], getPosts)
 }
