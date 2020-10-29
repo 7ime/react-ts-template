@@ -13,8 +13,11 @@ import App from './components/app'
 import '@i18n/index'
 import saga from '@store/saga'
 import {sagaMiddleware} from '@store/middleware'
+import {registrationServiceWorker} from './service-worker/registration'
 
 sagaMiddleware.run(saga)
+
+registrationServiceWorker()
 
 ReactDOM.render((
     <React.StrictMode>

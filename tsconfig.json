@@ -24,7 +24,7 @@
         "experimentalDecorators": true,
         "forceConsistentCasingInFileNames": true,
         "allowSyntheticDefaultImports": true,
-        "isolatedModules": true,
+        "isolatedModules": false,
         "jsx": "react",
         "baseUrl": "./",
         "paths": {

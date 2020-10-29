@@ -10,7 +10,8 @@ const isDevMode = process.env.NODE_ENV === 'development'
 module.exports = {
     context: resolvePath(paths.source),
     entry : {
-        main: './index.tsx'
+        main: './index.tsx',
+        serviceWorker: './service-worker/index.ts'
     },
     output: {
         path: resolvePath(paths.dist)
