@@ -1,6 +1,5 @@
 import {IWebNotificationService} from './model'
 import {EWebNotificationPermission} from '@constants/web-notification'
-import {IWebNotification} from '@entities/web-notification'
 
 export default class WebNotificationService implements IWebNotificationService {
     requestPermission(): Promise<EWebNotificationPermission> {
@@ -9,9 +8,5 @@ export default class WebNotificationService implements IWebNotificationService {
                 resolve(permission as EWebNotificationPermission)
             })
         })
-    }
-
-    showNotification(payload: IWebNotification.ShowNotification): Notification {
-        return new Notification(payload.title, payload.options)
     }
 }
