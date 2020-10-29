@@ -29,7 +29,7 @@ module.exports = {
     },
     serviceWorker(isDevMode) {
         return new ServiceWorkerWebpackPlugin({
-            entry: resolvePath(`${paths.source}/service-worker/index.js`),
+            entry: resolvePath(`${paths.source}/service-worker/index.ts`),
         })
     },
     forkTsCheckerWebpackPlugin() {
