@@ -13,15 +13,16 @@ import App from './components/app'
 import '@i18n/index'
 import saga from '@store/saga'
 import {sagaMiddleware} from '@store/middleware'
-import {registrationServiceWorker} from './service-worker/registration'
+import {ServiceWorkerAction} from '@store/service-worker'
 
 sagaMiddleware.run(saga)
 
-registrationServiceWorker()
+const store = getAppStore()
+store.dispatch(ServiceWorkerAction.register())
 
 ReactDOM.render((
     <React.StrictMode>
-        <Provider store={getAppStore()}>
+        <Provider store={store}>
             <ServiceContext.Provider value={getService()}>
                 <BrowserRouter>
                     <HelmetSet/>
