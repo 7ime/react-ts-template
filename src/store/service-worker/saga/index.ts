@@ -7,7 +7,7 @@ const service: IService = getService()
 
 export function* register() {
     if (service.serviceWorkerService.checkSupport()) {
-        const response = yield call(service.serviceWorkerService.register)
+        const response: ServiceWorkerRegistration = yield call(service.serviceWorkerService.register)
 
         yield put(ServiceWorkerAction.registered(response))
     }
