@@ -10,8 +10,7 @@ const isDevMode = process.env.NODE_ENV === 'development'
 module.exports = {
     context: resolvePath(paths.source),
     entry : {
-        main: './index.tsx',
-        serviceWorker: './service-worker/index.ts'
+        main: './index.tsx'
     },
     output: {
         path: resolvePath(paths.dist)
@@ -37,6 +36,7 @@ module.exports = {
     plugins: [
         plugins.forkTsCheckerWebpackPlugin(),
         plugins.miniCssExtractPlugin(isDevMode),
+        plugins.serviceWorker(isDevMode)
     ],
     performance: {
         hints: false

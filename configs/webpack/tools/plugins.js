@@ -4,6 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
 
 const {resolvePath} = require('./helpers')
 const paths = require('./paths')
@@ -24,6 +25,11 @@ module.exports = {
         return new MiniCssExtractPlugin({
             filename: isDevMode ? '[name].css' : '[name].[contenthash:8].css',
             chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash:8].css'
+        })
+    },
+    serviceWorker(isDevMode) {
+        return new ServiceWorkerWebpackPlugin({
+            entry: resolvePath(`${paths.source}/service-worker/index.ts`),
         })
     },
     forkTsCheckerWebpackPlugin() {
