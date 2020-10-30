@@ -2,7 +2,7 @@ import {IService} from './model'
 import JsonPlaceholderService from './jsonplaceholder-service'
 import UiService from '@services/ui-service'
 import WebNotificationService from '@services/web-notification-service'
-import SwService from '@services/service-worker'
+import SwService from '@services/sw-service'
 
 class Service implements IService {
     jsonPlaceholderService = new JsonPlaceholderService()
