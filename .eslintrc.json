@@ -38,15 +38,7 @@
         ],
         "getter-return": "error",
         "no-await-in-loop": "error",
-        "no-console": [
-            "error",
-            {
-                "allow": [
-                    "warn",
-                    "error"
-                ]
-            }
-        ],
+        "no-console": "off",
         "semi": ["error", "never"],
         "@typescript-eslint/no-unused-vars": ["error", { "args": "none" }],
         "@typescript-eslint/no-var-requires": "off",
