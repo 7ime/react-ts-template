@@ -1,8 +1,7 @@
-import {EWebNotificationPermission} from '@constants/web-notification'
 import {Maybe} from '@toolbox/custom-types'
 
 export interface IState {
-    permission: Maybe<EWebNotificationPermission>
+    permission: Maybe<NotificationPermission>
 }
 
 export const initialState: IState = {

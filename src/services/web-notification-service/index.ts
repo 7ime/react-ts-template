@@ -1,19 +1,18 @@
 import {IWebNotificationService} from './model'
-import {EWebNotificationPermission} from '@constants/web-notification'
 
 export default class WebNotificationService implements IWebNotificationService {
     checkSupport(): boolean {
         return 'Notification' in window
     }
 
-    getPermission(): EWebNotificationPermission {
-        return Notification.permission as EWebNotificationPermission
+    getPermission(): NotificationPermission {
+        return Notification.permission
     }
 
-    requestPermission(): Promise<EWebNotificationPermission> {
-        return new Promise<EWebNotificationPermission>((resolve) => {
+    requestPermission(): Promise<NotificationPermission> {
+        return new Promise((resolve) => {
             Notification.requestPermission((permission) => {
-                resolve(permission as EWebNotificationPermission)
+                resolve(permission)
             })
         })
     }
