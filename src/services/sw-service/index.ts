@@ -1,12 +1,6 @@
 import runtime from 'serviceworker-webpack-plugin/lib/runtime'
 import {ISwService} from '@services/sw-service/model'
-
-const CACHE_NAME = 'v1'
-
-const urlsToCache = [
-    '/',
-    'main.bundle.js'
-]
+import {URLS_TO_CACHE, ENamesCashes} from '@caches/index'
 
 export default class SwService implements ISwService {
     checkSupport(): boolean {
@@ -17,9 +11,21 @@ export default class SwService implements ISwService {
         return runtime.register()
     }
 
-    cacheFiles(): Promise<void> {
-        return caches.open(CACHE_NAME).then((cache) => {
-            return cache.addAll(urlsToCache)
+    cacheStatic(): Promise<void> {
+        return caches.open(ENamesCashes.static).then((cache) => {
+            return cache.addAll(URLS_TO_CACHE.static)
+        })
+    }
+
+    cachePages(): Promise<void> {
+        return caches.open(ENamesCashes.pages).then((cache) => {
+            return cache.addAll(URLS_TO_CACHE.pages)
+        })
+    }
+
+    cachePosts(): Promise<void> {
+        return caches.open(ENamesCashes.posts).then((cache) => {
+            return cache.addAll(URLS_TO_CACHE.posts)
         })
     }
 

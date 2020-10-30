@@ -4,7 +4,11 @@ const service = getService()
 
 self.addEventListener('install', (event: any) => {
     event.waitUntil(
-        service.swService.cacheFiles()
+        Promise.all([
+            service.swService.cacheStatic(),
+            service.swService.cachePosts(),
+            service.swService.cachePages(),
+        ])
     )
 })
 

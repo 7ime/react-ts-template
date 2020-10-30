@@ -29,6 +29,7 @@
         "jsx": "react",
         "baseUrl": "./",
         "paths": {
+            "@caches/*": ["./src/caches/*"],
             "@fonts/*": ["./src/assets/fonts/*"],
             "@styles/*": ["./src/assets/styles/*"],
             "@images/*": ["./src/assets/images/*"],
