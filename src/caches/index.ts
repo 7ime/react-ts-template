@@ -1,20 +1,20 @@
 import Paths from '@api/paths'
 import Routes from '@routing/routes'
 
-export enum ENamesCashes {
-    static = 'static',
-    pages = 'pages',
-    posts = 'posts',
+export const NAMES_CACHES = {
+    static: 'static',
+    pages: 'pages',
+    posts: 'posts',
 }
 
 export const URLS_TO_CACHE = {
-    static: [
+    [NAMES_CACHES.static]: [
         'main.bundle.js'
     ],
-    pages: [
+    [NAMES_CACHES.pages]: [
         Routes.restApi.root()
     ],
-    posts: [
+    [NAMES_CACHES.posts]: [
         Paths.JsonPlaceholder.getPosts()
     ]
 }

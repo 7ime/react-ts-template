@@ -5,4 +5,5 @@ export interface ISwService {
     cachePages(): Promise<void>
     cachePosts(): Promise<void>
     cacheResponse(event: any): Promise<Response>
+    clearCaches(): Promise<boolean[]>
 }
