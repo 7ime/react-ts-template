@@ -9,6 +9,17 @@ export function* register() {
     if (service.swService.checkSupport()) {
         const response: ServiceWorkerRegistration = yield call(service.swService.register)
 
+
+        if (response.active) {
+            navigator.serviceWorker.addEventListener('message', (event: any) => {
+                console.log(event)
+            })
+
+            response.active.postMessage({
+                hello: 'world'
+            })
+        }
+
         yield put(SwAction.registered(response))
     }
 }

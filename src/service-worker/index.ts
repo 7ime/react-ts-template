@@ -37,3 +37,14 @@ self.addEventListener('notificationclick', (event: any) => {
         }
     }
 })
+
+self.addEventListener('message', (event) => {
+    service.postMessage.sendToClients((self as any).clients, {
+        hello: 'client'
+    })
+})
+
+
+
+
+
