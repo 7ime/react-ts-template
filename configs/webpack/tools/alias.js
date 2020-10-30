@@ -2,6 +2,7 @@ const {resolvePath} = require('./helpers')
 const paths = require('./paths')
 
 module.exports = {
+    '@caches': resolvePath(paths.source + '/caches'),
     '@fonts': resolvePath(paths.source + '/assets/fonts'),
     '@images': resolvePath(paths.source + '/assets/images'),
     '@styles': resolvePath(paths.source + '/assets/styles'),
