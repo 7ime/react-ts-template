@@ -1,7 +1,7 @@
 import runtime from 'serviceworker-webpack-plugin/lib/runtime'
-import {IServiceWorkerService} from '@services/service-worker/model'
+import {ISwService} from '@services/service-worker/model'
 
-export default class ServiceWorkerService implements IServiceWorkerService {
+export default class SwService implements ISwService {
     checkSupport(): boolean {
         return 'serviceWorker' in navigator
     }
