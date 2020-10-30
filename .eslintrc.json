@@ -29,7 +29,8 @@
     "globals": {
         "process": true,
         "require": true,
-        "module": true
+        "module": true,
+        "jest": true
     },
     "rules": {
         "quotes": [
