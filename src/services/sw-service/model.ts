@@ -8,5 +8,5 @@ export interface ISwService {
     cacheResponse(event: any): Promise<Response>
     clearCaches(): Promise<boolean[]>
     checkFileForExistInCache(cacheName: ENamesCaches, fileName: string): Promise<boolean>
-    addFileToCache(cacheName: ENamesCaches, fileNames: string[]): Promise<void>
+    addFilesToCache(cacheName: ENamesCaches, fileNames: string[]): Promise<void>
 }

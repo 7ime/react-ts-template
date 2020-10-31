@@ -38,11 +38,11 @@ self.addEventListener('fetch', async(event: any) => {
 
     const isExist = await service.swService.checkFileForExistInCache(ENamesCaches.static, event.request.url)
 
-    console.log(event.request.url, isExist)
+    if (!isExist) {
+        await service.swService.addFilesToCache(ENamesCaches.static, [event.request.url])
+    }
 
-    // event.respondWith(
-    //     service.swService.cacheResponse(event)
-    // )
+    service.swService.cacheResponse(event)
 })
 
 self.addEventListener('notificationclick', (event: any) => {

@@ -8,15 +8,15 @@ export default class SwService implements ISwService {
     }
 
     async cacheStatic(): Promise<void> {
-        return this.addFileToCache(ENamesCaches.static, URLS_TO_CACHE.static)
+        return this.addFilesToCache(ENamesCaches.static, URLS_TO_CACHE.static)
     }
 
     async cachePages(): Promise<void> {
-        return this.addFileToCache(ENamesCaches.pages, URLS_TO_CACHE.pages)
+        return this.addFilesToCache(ENamesCaches.pages, URLS_TO_CACHE.pages)
     }
 
     async cachePosts(): Promise<void> {
-        return this.addFileToCache(ENamesCaches.posts, URLS_TO_CACHE.posts)
+        return this.addFilesToCache(ENamesCaches.posts, URLS_TO_CACHE.posts)
     }
 
     cacheResponse(event: any): Promise<Response> {
@@ -39,7 +39,7 @@ export default class SwService implements ISwService {
         return index !== -1
     }
 
-    async addFileToCache(cacheName: ENamesCaches, fileNames: string[]): Promise<void> {
+    async addFilesToCache(cacheName: ENamesCaches, fileNames: string[]): Promise<void> {
         const cache = await caches.open(cacheName)
 
         return cache.addAll(fileNames)
