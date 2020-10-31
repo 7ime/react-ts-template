@@ -1,3 +1,5 @@
+import {ENamesCaches} from '@caches/index'
+
 export interface ISwService {
     register(): Promise<ServiceWorkerRegistration>
     cacheStatic(): Promise<void>
@@ -5,4 +7,6 @@ export interface ISwService {
     cachePosts(): Promise<void>
     cacheResponse(event: any): Promise<Response>
     clearCaches(): Promise<boolean[]>
+    checkFileForExistInCache(cacheName: ENamesCaches, fileName: string): Promise<boolean>
+    addFileToCache(cacheName: ENamesCaches, fileNames: string[]): Promise<void>
 }

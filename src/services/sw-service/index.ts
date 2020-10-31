@@ -1,28 +1,22 @@
 import runtime from 'serviceworker-webpack-plugin/lib/runtime'
 import {ISwService} from '@services/sw-service/model'
-import {URLS_TO_CACHE, NAMES_CACHES} from '@caches/index'
+import {URLS_TO_CACHE, ENamesCaches} from '@caches/index'
 
 export default class SwService implements ISwService {
     register(): Promise<ServiceWorkerRegistration> {
         return runtime.register()
     }
 
-    cacheStatic(): Promise<void> {
-        return caches.open(NAMES_CACHES.static).then((cache) => {
-            return cache.addAll(URLS_TO_CACHE.static)
-        })
+    async cacheStatic(): Promise<void> {
+        return this.addFileToCache(ENamesCaches.static, URLS_TO_CACHE.static)
     }
 
-    cachePages(): Promise<void> {
-        return caches.open(NAMES_CACHES.pages).then((cache) => {
-            return cache.addAll(URLS_TO_CACHE.pages)
-        })
+    async cachePages(): Promise<void> {
+        return this.addFileToCache(ENamesCaches.pages, URLS_TO_CACHE.pages)
     }
 
-    cachePosts(): Promise<void> {
-        return caches.open(NAMES_CACHES.posts).then((cache) => {
-            return cache.addAll(URLS_TO_CACHE.posts)
-        })
+    async cachePosts(): Promise<void> {
+        return this.addFileToCache(ENamesCaches.posts, URLS_TO_CACHE.posts)
     }
 
     cacheResponse(event: any): Promise<Response> {
@@ -35,9 +29,27 @@ export default class SwService implements ISwService {
         })
     }
 
-    clearCaches(): Promise<boolean[]> {
+    async checkFileForExistInCache(cacheName: ENamesCaches, fileName: string): Promise<boolean> {
+        const cache = await caches.open(cacheName)
+
+        const cacheFiles = await cache.keys()
+
+        const index = cacheFiles.findIndex(item => item.url === fileName)
+
+        return index !== -1
+    }
+
+    async addFileToCache(cacheName: ENamesCaches, fileNames: string[]): Promise<void> {
+        const cache = await caches.open(cacheName)
+
+        return cache.addAll(fileNames)
+    }
+
+    async clearCaches(): Promise<boolean[]> {
+        const allNamesCaches = await caches.keys()
+
          return Promise.all(
-            Object.keys(NAMES_CACHES).filter(() => true).map((cacheName: string) => {
+             allNamesCaches.filter(() => true).map((cacheName: string) => {
                 return caches.delete(cacheName)
             })
         )

@@ -10,6 +10,10 @@ export const checkSupportPostMessage = (): boolean => {
     return 'postMessage' in window
 }
 
+export const checkSupportCaches = (): boolean => {
+    return 'caches' in window
+}
+
 export const checkSupportServiceWorkersEcosystem = (): boolean => {
-    return  checkSupportServiceWorkers() && checkSupportWebNotifications() && checkSupportPostMessage()
+    return  checkSupportServiceWorkers() && checkSupportWebNotifications() && checkSupportPostMessage() && checkSupportCaches()
 }
