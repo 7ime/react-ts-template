@@ -8,12 +8,12 @@ const service = getService()
 self.addEventListener('install', async (event: any) => {
     console.log('sw install')
 
-    await service.swService.clearCaches()
+    await service.cacheService.clearCaches()
 
     Promise.all([
-        service.swService.cacheStatic(),
-        service.swService.cachePosts(),
-        service.swService.cachePages(),
+        service.cacheService.cacheStatic(),
+        service.cacheService.cachePosts(),
+        service.cacheService.cachePages(),
     ])
 })
 
@@ -36,13 +36,13 @@ self.addEventListener('push', (event: any) => {
 self.addEventListener('fetch', async(event: any) => {
     console.log('sw fetch')
 
-    const isExist = await service.swService.checkFileForExistInCache(ENamesCaches.static, event.request.url)
+    const isExist = await service.cacheService.checkFileForExistInCache(ENamesCaches.static, event.request.url)
 
     if (!isExist) {
-        await service.swService.addFilesToCache(ENamesCaches.static, [event.request.url])
+        await service.cacheService.addFilesToCache(ENamesCaches.static, [event.request.url])
     }
 
-    service.swService.cacheResponse(event)
+    service.cacheService.cacheResponse(event)
 })
 
 self.addEventListener('notificationclick', (event: any) => {
