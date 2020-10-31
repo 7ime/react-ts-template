@@ -36,6 +36,7 @@ module.exports = {
     plugins: [
         plugins.forkTsCheckerWebpackPlugin(),
         plugins.miniCssExtractPlugin(isDevMode),
+        plugins.serviceWorker(isDevMode)
     ],
     performance: {
         hints: false

@@ -4,7 +4,8 @@
         "lib": [
             "dom",
             "dom.iterable",
-            "esnext"
+            "esnext",
+            "WebWorker"
         ],
         "rootDirs": [
             "./",
@@ -24,10 +25,11 @@
         "experimentalDecorators": true,
         "forceConsistentCasingInFileNames": true,
         "allowSyntheticDefaultImports": true,
-        "isolatedModules": true,
+        "isolatedModules": false,
         "jsx": "react",
         "baseUrl": "./",
         "paths": {
+            "@caches/*": ["./src/caches/*"],
             "@fonts/*": ["./src/assets/fonts/*"],
             "@styles/*": ["./src/assets/styles/*"],
             "@images/*": ["./src/assets/images/*"],

@@ -1,9 +1,9 @@
 import {Maybe} from '@toolbox/custom-types'
 
 export interface IState {
-    permission: Maybe<NotificationPermission>
+    registration: Maybe<ServiceWorkerRegistration>
 }
 
 export const initialState: IState = {
-    permission: null
+    registration: null
 }
