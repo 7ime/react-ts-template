@@ -13,6 +13,7 @@ export function* register() {
         const response: ServiceWorkerRegistration = yield call(service.swService.register)
 
         yield put(SwAction.registered(response))
+        yield put(SwAction.launchPostMessageListener())
 
         service.postMessage.sendToServiceWorker(response, {
             type: EPostMessageTypes.welcome,
@@ -20,8 +21,6 @@ export function* register() {
                 message: 'hello service worker'
             }
         })
-
-        yield put(SwAction.launchPostMessageListener())
     }
 }
 
