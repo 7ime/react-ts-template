@@ -1,7 +1,7 @@
-import {call, put, select, takeLatest} from 'redux-saga/effects'
+import {call, put, takeLatest} from 'redux-saga/effects'
 import getService from '@services/index'
 import {IService} from '@services/model'
-import {SwAction, SwSelector} from '../index'
+import {SwAction} from '../index'
 import {checkSupportServiceWorkersEcosystem} from '@toolbox/utils/support-features'
 import {EPostMessageTypes} from '../../../post-message'
 import {IPostMessage} from '../../../post-message/model'
@@ -25,11 +25,7 @@ export function* register() {
 }
 
 export function* unregister() {
-    let worker = yield select(SwSelector.getWorker)
-
-    if (!worker) {
-        worker =  yield call(service.swService.getRegistration)
-    }
+    const worker = yield call(service.swService.getRegistration)
 
     if (worker) {
         yield call(service.swService.unregister, worker)
