@@ -1,5 +1,4 @@
 export interface ISwService {
-    checkSupport(): boolean
     register(): Promise<ServiceWorkerRegistration>
     cacheStatic(): Promise<void>
     cachePages(): Promise<void>

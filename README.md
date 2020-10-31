@@ -103,7 +103,8 @@ npm run build-storybook
         * fetcher - implementation for interacting with the server
         * paths - api paths
     * assets (fonts, images, styles)
-    * caches - contains auxiliary items for the cache
+    * caches - contains auxiliary items for the cache api
+    * post-message - contains auxiliary items for the poss message api
     * components
         * app - main component
         * common - common components for the entire application

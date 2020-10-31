@@ -2,28 +2,42 @@ import {call, put, takeLatest} from 'redux-saga/effects'
 import getService from '@services/index'
 import {IService} from '@services/model'
 import {SwAction} from '../index'
+import {checkSupportServiceWorkersEcosystem} from '@toolbox/utils/support-features'
+import {EPostMessageTypes} from '../../../post-message'
+import {IPostMessage} from '../../../post-message/model'
 
 const service: IService = getService()
 
 export function* register() {
-    if (service.swService.checkSupport()) {
+    if (checkSupportServiceWorkersEcosystem()) {
         const response: ServiceWorkerRegistration = yield call(service.swService.register)
 
-
-        if (response.active) {
-            navigator.serviceWorker.addEventListener('message', (event: any) => {
-                console.log(event)
-            })
-
-            response.active.postMessage({
-                hello: 'world'
-            })
-        }
-
         yield put(SwAction.registered(response))
+
+        service.postMessage.sendToServiceWorker(response, {
+            type: EPostMessageTypes.welcome,
+            payload: {
+                message: 'hello service worker'
+            }
+        })
+
+        yield put(SwAction.launchPostMessageListener())
     }
+}
+
+export function launchPostMessageListener() {
+    navigator.serviceWorker.addEventListener('message', (event) => {
+        const data: IPostMessage.Data<unknown> = event.data
+
+        switch (data.type) {
+            case EPostMessageTypes.welcome: {
+                console.log(data.payload)
+            }
+        }
+    })
 }
 
 export function* rootSaga() {
     yield takeLatest([SwAction.register], register)
+    yield takeLatest([SwAction.launchPostMessageListener], launchPostMessageListener)
 }

@@ -1,4 +1,6 @@
 import getService from '@services/index'
+import {EPostMessageTypes} from '../post-message'
+import {IPostMessage} from '../post-message/model'
 
 const service = getService()
 
@@ -23,9 +25,9 @@ self.addEventListener('push', (event: any) => {
 })
 
 self.addEventListener('fetch', (event: any) => {
-    event.respondWith(
-        service.swService.cacheResponse(event)
-    )
+    // event.respondWith(
+    //     service.swService.cacheResponse(event)
+    // )
 })
 
 self.addEventListener('notificationclick', (event: any) => {
@@ -43,12 +45,18 @@ self.addEventListener('notificationclick', (event: any) => {
 })
 
 self.addEventListener('message', (event) => {
+    const data: IPostMessage.Data<unknown> = event.data
+
+    switch (data.type) {
+        case EPostMessageTypes.welcome: {
+            console.log(data.payload)
+        }
+    }
+
     service.postMessage.sendToClients((self as any).clients, {
-        hello: 'client'
+        type: EPostMessageTypes.welcome,
+        payload: {
+            message: 'hello client'
+        }
     })
 })
-
-
-
-
-

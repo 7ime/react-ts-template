@@ -3,11 +3,12 @@ import getService from '@services/index'
 import {IService} from '@services/model'
 import {WebNotificationAction} from '../index'
 import {EWebNotificationPermission} from '@constants/web-notification'
+import {checkSupportWebNotifications} from '@toolbox/utils/support-features'
 
 const service: IService = getService()
 
 export function* requestPermission() {
-    if (service.webNotificationService.checkSupport()) {
+    if (checkSupportWebNotifications()) {
         const permission = service.webNotificationService.getPermission()
 
         if (permission !== EWebNotificationPermission.denied) {

@@ -3,10 +3,6 @@ import {ISwService} from '@services/sw-service/model'
 import {URLS_TO_CACHE, NAMES_CACHES} from '@caches/index'
 
 export default class SwService implements ISwService {
-    checkSupport(): boolean {
-        return 'serviceWorker' in navigator
-    }
-
     register(): Promise<ServiceWorkerRegistration> {
         return runtime.register()
     }

@@ -1,10 +1,6 @@
 import {IWebNotificationService} from './model'
 
 export default class WebNotificationService implements IWebNotificationService {
-    checkSupport(): boolean {
-        return 'Notification' in window
-    }
-
     getPermission(): NotificationPermission {
         return Notification.permission
     }
