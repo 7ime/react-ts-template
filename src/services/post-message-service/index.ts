@@ -10,9 +10,9 @@ export default class PostMessageService implements IPostMessageService {
         })
     }
 
-    sendToServiceWorker<T>(registration: ServiceWorkerRegistration, data: IPostMessage.Data<T>) {
-        if (registration.active) {
-            registration.active.postMessage(data)
+    sendToServiceWorker<T>(worker: ServiceWorkerRegistration, data: IPostMessage.Data<T>) {
+        if (worker.active) {
+            worker.active.postMessage(data)
         }
     }
 }

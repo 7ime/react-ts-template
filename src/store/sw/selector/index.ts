@@ -3,4 +3,4 @@ import {IAppState} from '../../app-reducer'
 
 const getState = (state: IAppState) => state.sw
 
-export const getRegistration = createSelector(getState, state => state.registration)
+export const getWorker = createSelector(getState, state => state.worker)

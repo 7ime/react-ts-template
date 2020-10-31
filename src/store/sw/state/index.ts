@@ -1,9 +1,9 @@
 import {Maybe} from '@toolbox/custom-types'
 
 export interface IState {
-    registration: Maybe<ServiceWorkerRegistration>
+    worker: Maybe<ServiceWorkerRegistration>
 }
 
 export const initialState: IState = {
-    registration: null
+    worker: null
 }
