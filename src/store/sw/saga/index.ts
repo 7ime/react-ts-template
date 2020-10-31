@@ -26,6 +26,8 @@ export function* register() {
 
 export function launchPostMessageListener() {
     navigator.serviceWorker.addEventListener('message', (event) => {
+        if (location.origin !== event.origin) return
+
         const data: IPostMessage.Data<unknown> = event.data
 
         switch (data.type) {

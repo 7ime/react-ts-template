@@ -45,6 +45,8 @@ self.addEventListener('notificationclick', (event: any) => {
 })
 
 self.addEventListener('message', (event) => {
+    if (location.origin !== event.origin) return
+
     const data: IPostMessage.Data<unknown> = event.data
 
     switch (data.type) {
