@@ -17,7 +17,7 @@ module.exports = function (webpackEnv, argv) {
             chunkFilename: '[name].bundle.js'
         },
         plugins: [
-            plugins.htmlWebpackPlugin({
+            plugins.htmlWebpackPlugin(true, {
                 minify: false
             })
         ],

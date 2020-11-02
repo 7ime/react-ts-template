@@ -35,13 +35,14 @@ module.exports = {
     forkTsCheckerWebpackPlugin() {
         return new ForkTsCheckerWebpackPlugin(configForkTsCheckerWebpackPlugin)
     },
-    htmlWebpackPlugin(config) {
+    htmlWebpackPlugin(isDevMode, config) {
         return new HtmlWebpackPlugin({
             ...config,
             inject: true,
             filename: 'index.html',
             template: resolvePath(`${paths.source}/index.html`),
-            chunks: 'bundle'
+            chunks: 'bundle',
+            base: isDevMode ? '/' : JSON.stringify(require('package.json').homepage)
         })
     },
     terserPlugin() {

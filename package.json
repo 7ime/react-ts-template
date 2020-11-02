@@ -12,6 +12,7 @@
     },
     "author": "7ime",
     "license": "ISC",
+    "homepage":"https://7ime.github.io/react-ts-template/app",
     "dependencies": {
         "@reduxjs/toolkit": "^1.4.0",
         "axios": "^0.19.0",

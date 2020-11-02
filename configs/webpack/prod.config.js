@@ -16,7 +16,7 @@ module.exports = function (webpackEnv, argv) {
         },
         plugins: [
             plugins.cleanWebpackPlugin(),
-            plugins.htmlWebpackPlugin( {
+            plugins.htmlWebpackPlugin(false, {
                 minify: {
                     collapseWhitespace: true,
                     removeComments: true,
