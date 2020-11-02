@@ -13,7 +13,8 @@ module.exports = {
         main: './index.tsx'
     },
     output: {
-        path: resolvePath(paths.dist)
+        path: resolvePath(paths.dist),
+        publicPath: '/'
     },
     resolve: {
         alias,
