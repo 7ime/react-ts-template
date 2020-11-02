@@ -1,3 +1,4 @@
+const Webpack = require('webpack')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
@@ -5,10 +6,23 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
+const dotenv = require('dotenv')
 
 const {resolvePath} = require('./helpers')
 const paths = require('./paths')
-const packageJson = require(resolvePath('package.json'))
+
+const env = dotenv.config({
+    path: 'sample.env'
+}).parsed
+
+if(!env) {
+    throw new Error('File \'SAMPLE.env\' doesn\'t exist')
+}
+
+const envKeys = Object.keys(env).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(env[next])
+    return prev
+}, {})
 
 const configForkTsCheckerWebpackPlugin = {
     tsconfig: resolvePath('tsconfig.json'),
@@ -22,6 +36,9 @@ const configForkTsCheckerWebpackPlugin = {
 }
 
 module.exports = {
+    definePlugin() {
+        return new Webpack.DefinePlugin(envKeys)
+    },
     miniCssExtractPlugin(isDevMode) {
         return new MiniCssExtractPlugin({
             filename: isDevMode ? '[name].css' : '[name].[contenthash:8].css',
@@ -43,7 +60,7 @@ module.exports = {
             filename: 'index.html',
             template: resolvePath(`${paths.source}/index.html`),
             chunks: 'bundle',
-            base: !isDevMode && packageJson.homepage ? packageJson.homepage : '/'
+            base: !isDevMode && process.env.APP_SITE_URL_ROOT ? process.env.APP_SITE_URL_ROOT : '/'
         })
     },
     terserPlugin() {

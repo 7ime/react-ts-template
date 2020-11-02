@@ -6,7 +6,7 @@ const paths = require('./tools/paths')
 const plugins = require('./tools/plugins')
 
 const mode = 'development'
-process.env.NODE_ENV = mode;
+process.env.NODE_ENV = mode
 
 module.exports = function (webpackEnv, argv) {
 

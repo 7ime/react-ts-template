@@ -34,6 +34,7 @@ module.exports = {
         ]
     },
     plugins: [
+        plugins.definePlugin(),
         plugins.forkTsCheckerWebpackPlugin(),
         plugins.miniCssExtractPlugin(isDevMode),
         plugins.serviceWorker(isDevMode)
