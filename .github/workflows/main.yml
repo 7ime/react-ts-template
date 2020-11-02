@@ -36,7 +36,8 @@ jobs:
             - name: Deploy Storybook
               uses: JamesIves/github-pages-deploy-action@3.7.1
               with:
-                  BRANCH: storybook-build
+                  BRANCH: build
+                  TARGET_FOLDER: storybook
                   FOLDER: storybook-static
                   CLEAN: true
               env:
