@@ -8,6 +8,7 @@ const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
 
 const {resolvePath} = require('./helpers')
 const paths = require('./paths')
+const packageJson = require(resolvePath('package.json'))
 
 const configForkTsCheckerWebpackPlugin = {
     tsconfig: resolvePath('tsconfig.json'),
@@ -42,7 +43,7 @@ module.exports = {
             filename: 'index.html',
             template: resolvePath(`${paths.source}/index.html`),
             chunks: 'bundle',
-            base: isDevMode ? '/' : JSON.stringify(require('package.json').homepage)
+            base: !isDevMode && packageJson.homepage ? packageJson.homepage : '/'
         })
     },
     terserPlugin() {
