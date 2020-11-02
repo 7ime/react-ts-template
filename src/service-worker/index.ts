@@ -1,7 +1,6 @@
 import getService from '@services/index'
 import {EPostMessageTypes} from '../post-message'
 import {IPostMessage} from '../post-message/model'
-import {ENamesCaches} from '@caches/index'
 
 const service = getService()
 
@@ -35,12 +34,6 @@ self.addEventListener('push', (event: any) => {
 
 self.addEventListener('fetch', async(event: any) => {
     console.log('sw fetch')
-
-    // const isExist = await service.cacheService.checkFileForExistInCache(ENamesCaches.static, event.request.url)
-    //
-    // if (!isExist) {
-    //     await service.cacheService.addFilesToCache(ENamesCaches.static, [event.request.url])
-    // }
 
     // service.cacheService.cacheResponse(event)
 })
