@@ -1,7 +1,6 @@
 const merge = require('webpack-merge')
 
 const commonConfig = require('./common.config')
-const paths = require('./tools/paths')
 const plugins = require('./tools/plugins')
 
 const mode = 'production'

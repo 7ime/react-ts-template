@@ -41,8 +41,7 @@ module.exports = {
             inject: true,
             filename: 'index.html',
             template: resolvePath(`${paths.source}/index.html`),
-            chunks: 'bundle',
-            base: '/'
+            chunks: 'bundle'
         })
     },
     terserPlugin() {
