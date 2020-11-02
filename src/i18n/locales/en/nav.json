@@ -1,8 +1,0 @@
-{
-    "home": {
-        "root": "/"
-    },
-    "restApi": {
-        "root": "/rest-api"
-    }
-}

@@ -1,3 +1,0 @@
-{
-    "title": "Hello {{ name }}. This is $t(shared:site)"
-}
