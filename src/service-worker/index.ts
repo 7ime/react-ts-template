@@ -42,7 +42,7 @@ self.addEventListener('fetch', async(event: any) => {
         await service.cacheService.addFilesToCache(ENamesCaches.static, [event.request.url])
     }
 
-    service.cacheService.cacheResponse(event)
+    // service.cacheService.cacheResponse(event)
 })
 
 self.addEventListener('notificationclick', (event: any) => {
