@@ -36,11 +36,11 @@ self.addEventListener('push', (event: any) => {
 self.addEventListener('fetch', async(event: any) => {
     console.log('sw fetch')
 
-    const isExist = await service.cacheService.checkFileForExistInCache(ENamesCaches.static, event.request.url)
-
-    if (!isExist) {
-        await service.cacheService.addFilesToCache(ENamesCaches.static, [event.request.url])
-    }
+    // const isExist = await service.cacheService.checkFileForExistInCache(ENamesCaches.static, event.request.url)
+    //
+    // if (!isExist) {
+    //     await service.cacheService.addFilesToCache(ENamesCaches.static, [event.request.url])
+    // }
 
     // service.cacheService.cacheResponse(event)
 })
