@@ -43,7 +43,7 @@ module.exports = {
             template: resolvePath(`${paths.source}/index.html`),
             chunks: 'bundle',
             base: '/'
-        });
+        })
     },
     terserPlugin() {
         return new TerserPlugin({
