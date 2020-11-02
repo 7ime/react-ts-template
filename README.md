@@ -91,7 +91,9 @@ npm run build-storybook
 
 ### Folder structure
 
-* storybook - setting up storybook
+* .github
+    * workflows - for automated process on github
+* .storybook - setting up storybook
 * configs - configuration files for webpack, jest
 * dist - files of the production version of the app
 * static-storybook - files of the production version of the storybook
