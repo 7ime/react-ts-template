@@ -1,0 +1,54 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "globals": {
+        "process": true,
+        "require": true,
+        "module": true,
+        "jest": true
+    },
+    "rules": {
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "getter-return": "error",
+        "no-await-in-loop": "error",
+        "no-console": "off",
+        "semi": ["error", "never"],
+        "@typescript-eslint/no-unused-vars": ["error", { "args": "none" }],
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/no-namespace": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/ban-types": "off",
+        "react-hooks/exhaustive-deps": "off",
+        "react/display-name": "off"
+    }
+}

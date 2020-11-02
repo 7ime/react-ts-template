@@ -1,0 +1,3 @@
+{
+    "title": "Привет {{ name }}. Это $t(shared:site)"
+}

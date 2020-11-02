@@ -1,0 +1,152 @@
+@import '~@styles/variables/colors.module.scss';
+@import '~@styles/variables/shared.module.scss';
+
+.button {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    background-color: $grey_light_20;
+    min-height: 3.8rem;
+    padding: 1.5rem 3rem;
+    line-height: 1;
+    margin: 0;
+    outline: none;
+    font-family: $font;
+    font-weight: 500;
+    font-size: 1.4rem;
+    border-radius: $bdrs;
+    box-shadow: none;
+    transition: $transition;
+    z-index: 1;
+    min-width: 20rem;
+
+    &, &:visited {
+        text-decoration: none;
+    }
+
+    &:hover, &:focus {
+
+    }
+
+    &.round {
+        border-radius: 2.8rem;
+    }
+
+    &.primary {
+        &, &:visited {
+            border-color: $blue;
+            background-color: $blue;
+            color: #fff;
+        }
+
+        &:hover, &:focus {
+            border-color: darken($blue, 10%);
+            background-color: darken($blue, 10%);
+        }
+
+        & .loaderComponent {
+            circle {
+                stroke: #fff;
+            }
+        }
+    }
+
+    &.secondary {
+        &, &:visited {
+            border-color: $green;
+            background-color: $green;
+            color: #fff;
+        }
+
+        &:hover, &:focus {
+            border-color: darken($green, 10%);
+            background-color: darken($green, 10%);
+        }
+
+        & .loaderComponent {
+            circle {
+                stroke: #fff;
+            }
+        }
+    }
+
+    &.warning {
+        &, &:visited {
+            border-color: $red;
+            background-color: $red;
+            color: #fff;
+        }
+
+        &:hover, &:focus {
+            border-color: darken($red, 10%);
+            background-color: darken($red, 10%);
+        }
+
+        & .loaderComponent {
+            circle {
+                stroke: #fff;
+            }
+        }
+    }
+
+    &.attention {
+        &, &:visited {
+            border-color: $yellow;
+            background-color: $yellow;
+            color: $text_c;
+        }
+
+        &:hover, &:focus {
+            border-color: darken($yellow, 10%);
+            background-color: darken($yellow, 10%);
+        }
+
+        & .loaderComponent {
+            circle {
+                stroke: #000;
+            }
+        }
+    }
+
+    &.loader {
+        pointer-events: none;
+
+        .loaderComponent {
+            position: absolute;
+        }
+    }
+
+    &.loader_left {
+        .loaderComponent {
+            left: 1rem;
+        }
+    }
+
+    &.loader_center {
+
+    }
+
+    &.loader_right {
+        .loaderComponent {
+            right: 1rem;
+        }
+    }
+
+    &.is_disabled {
+        pointer-events: none;
+        background-color: #fff;
+        font-weight: 500;
+        color: $grey_light_40;
+        border-color: $grey_light_40;
+
+        & .loaderComponent {
+            circle {
+                stroke: $grey_light_40;
+            }
+        }
+    }
+}
