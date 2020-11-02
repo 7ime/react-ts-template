@@ -19,22 +19,21 @@ jobs:
               run: |
                   npm install
                   npm run test
-            - name: Build
-              run: npm run build
+
             - name: Deploy
+              run: npm run build
               uses: JamesIves/github-pages-deploy-action@3.7.1
               with:
-                  BRANCH: build # The branch the action should deploy to.
-                  FOLDER: dist # The folder the action should deploy.
-                  CLEAN: true # Automatically remove deleted files from the deploy branch
-            - name: Build Storybook
-              run: npm run build-storybook
+                  BRANCH: build
+                  FOLDER: dist
+                  CLEAN: true
 
             - name: Deploy Storybook
+              run: npm run build-storybook
               uses: JamesIves/github-pages-deploy-action@3.7.1
               with:
-                  BRANCH: build # The branch the action should deploy to.
-                  FOLDER: storybook-static # The folder the action should deploy.
-                  CLEAN: true # Automatically remove deleted files from the deploy branch
+                  BRANCH: storybook-build
+                  FOLDER: storybook-static
+                  CLEAN: true
               env:
                   CI: true
