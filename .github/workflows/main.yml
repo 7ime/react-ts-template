@@ -21,6 +21,12 @@ jobs:
                   npm run test
             - name: Build
               run: npm run build
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@3.7.1
+              with:
+                  BRANCH: master # The branch the action should deploy to.
+                  FOLDER: build # The folder the action should deploy.
+                  CLEAN: true # Automatically remove deleted files from the deploy branch
             - name: Build Storybook
               run: npm run build-storybook
               env:
