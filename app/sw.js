@@ -2,8 +2,8 @@ var serviceWorkerOption = {
   "assets": [
     "/static/fonts/OpenSans-Light.2d0bdc8d.ttf",
     "/static/fonts/OpenSans-Regular.3ed9575d.ttf",
-    "/static/fonts/OpenSans-Bold.1025a6e0.ttf",
     "/static/fonts/OpenSans-SemiBold.ba5cde21.ttf",
+    "/static/fonts/OpenSans-Bold.1025a6e0.ttf",
     "/main.f09e88ac.css",
     "/main.7c4c46fb.bundle.js",
     "/vendors~main.42df32da.bundle.js",
