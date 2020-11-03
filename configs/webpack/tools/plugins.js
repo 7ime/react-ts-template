@@ -60,7 +60,7 @@ module.exports = {
             filename: 'index.html',
             template: resolvePath(`${paths.source}/index.html`),
             chunks: 'bundle',
-            base: !isDevMode && process.env.APP_GITHUB_PAGE_URL ? process.env.APP_GITHUB_PAGE_URL : '/'
+            base: '/'
         })
     },
     terserPlugin() {
