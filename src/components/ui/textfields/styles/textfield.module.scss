@@ -97,7 +97,7 @@
     .controlWrap {
         position: relative;
         border: 1px solid $grey_light_30;
-        border-radius: $bdrs;
+        border-radius: $radius;
 
         &:before {
             transition: 0.15s ease-in-out;
