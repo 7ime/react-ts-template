@@ -2,7 +2,6 @@ import * as React from 'react'
 import classnames from 'classnames'
 import IButton from '../../model'
 import Loader from '../../../loaders/components/loader'
-import {ELoaderPosition} from '@constants/shared'
 import css from '../../styles/button.module.scss'
 
 const Button = (props: IButton.Props) => {
@@ -11,7 +10,6 @@ const Button = (props: IButton.Props) => {
         target = '_self',
         htmlType = 'button',
         loader,
-        loaderPosition = ELoaderPosition.center,
         type = '',
         shape = '',
         disabled,
@@ -26,7 +24,6 @@ const Button = (props: IButton.Props) => {
         {[css[shape]]: shape},
         {[css.is_disabled]: disabled},
         {[css.loader]: loader},
-        {[css[`loader_${loaderPosition}`]]: loader},
         parentClass
     )
 
@@ -44,7 +41,7 @@ const Button = (props: IButton.Props) => {
     return (
         <TagName className={classNames} {...restProps} {...propsDependingOnTag}>
             {children}
-            {loader && <div className={css.loaderComponent}><Loader/></div>}
+            {loader && <div className={css.loaderComponent}><Loader size={'small'}/></div>}
         </TagName>
     )
 }

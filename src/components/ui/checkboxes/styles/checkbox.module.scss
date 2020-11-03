@@ -30,7 +30,7 @@
         width: 2rem;
         height: 2rem;
         border-radius: 2px;
-        border: 1px solid $grey_light_30;
+        border: 1px solid lighten($grey, 30%);
         background-color: #fff;
         background-position: center center;
         background-size: 1.8rem;

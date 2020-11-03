@@ -18,11 +18,11 @@ const Header = (props: IProps) => {
                              exact
                              activeClassName={css.is_active}
                              className={css.link}
-                    >Home Page</NavLink>
+                    ><span>Home</span></NavLink>
                     <NavLink to={Routes.restApi.root()}
                              activeClassName={css.is_active}
                              className={css.link}
-                    >Rest Api</NavLink>
+                    ><span>Rest Api</span></NavLink>
                 </div>
             </div>
         </div>

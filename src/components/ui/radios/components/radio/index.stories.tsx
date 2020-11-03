@@ -8,7 +8,7 @@ export default {
 
 export const Default = () => {
     return (
-        <Radio value={'+'}>Plus</Radio>
+        <Radio value={'+'} checked>Plus</Radio>
     )
 }
 

@@ -30,7 +30,7 @@
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
-        border: 1px solid $grey_light_30;
+        border: 1px solid lighten($grey, 30%);
         background-color: #fff;
         background-position: center center;
         background-size: 1.8rem;
@@ -41,7 +41,7 @@
             content: '';
             width: 1.2rem;
             height: 1.2rem;
-            background-color: $grey_light_70;
+            background-color: lighten($grey, 10%);
             border-radius: 50%;
             top: 50%;
             left: 50%;

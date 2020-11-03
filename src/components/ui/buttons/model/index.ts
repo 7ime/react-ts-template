@@ -1,9 +1,7 @@
 import * as React from 'react'
-import {ELoaderPosition} from '@constants/shared'
 import {IParentClass} from '@models/shared'
 
 namespace IButton {
-    export type LoaderPosition = ELoaderPosition
     export type Target = '_blank' | '_self' | '_parent' | '_top'
     export type HTMLType = 'button' | 'submit' | 'reset'
 
@@ -11,10 +9,9 @@ namespace IButton {
         htmlType?: HTMLType
         href?: string
         target?: Target
-        type?: 'primary' | 'secondary' | 'warning' | 'attention'
+        type?: 'primary' | 'secondary' | 'warning'
         shape?: 'round'
         loader?: boolean
-        loaderPosition?: LoaderPosition
         disabled?: boolean
         title?: string
         onMouseDown?(event: React.MouseEvent): unknown

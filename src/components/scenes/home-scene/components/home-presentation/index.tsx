@@ -8,7 +8,7 @@ const HomePresentation = () => {
 
     return (
         <div className={css.homePresentation}>
-            <div className={css.title}>{t(`${EI18nNameSpaces.welcome}:title`, {name: 'world'})}</div>
+            <h3 className={css.title}>{t(`${EI18nNameSpaces.welcome}:title`, {name: 'world'})}</h3>
         </div>
     )
 }

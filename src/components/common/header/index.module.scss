@@ -2,12 +2,13 @@
 @import '~@styles/variables/shared.module.scss';
 
 .header {
-    box-shadow: 0 0 2rem rgba($grey_dark_100, 0.2);
-    background-color: #fff;
+    box-shadow: 0 0 2rem rgba($grey, 0.2);
+    background-color: $white;
 
     .menu {
         display: flex;
-        border-left: 1px solid $grey_light_30;
+        width: calc(100% + 4rem);
+        margin: 0 -2rem;
     }
 
     .link {
@@ -16,17 +17,16 @@
         font-weight: 600;
 
         &.is_active {
-            background-color: $grey_dark_50;
-            color: #fff;
+            color: $blue;
         }
 
         &, &:active {
-            color: $text_c;
             text-decoration: none;
+            color: $text_color;
         }
 
         &:hover {
-            color: $text_c;
+
         }
     }
 }

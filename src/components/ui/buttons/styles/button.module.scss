@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     border: 1px solid transparent;
-    background-color: $grey_light_20;
+    background-color: lighten($grey, 30%);
     min-height: 3.8rem;
     padding: 1.5rem 3rem;
     line-height: 1;
@@ -26,6 +26,7 @@
 
     &, &:visited {
         text-decoration: none;
+        color: $text_color;
     }
 
     &:hover, &:focus {
@@ -40,7 +41,7 @@
         &, &:visited {
             border-color: $blue;
             background-color: $blue;
-            color: #fff;
+            color: $white;
         }
 
         &:hover, &:focus {
@@ -59,7 +60,7 @@
         &, &:visited {
             border-color: $green;
             background-color: $green;
-            color: #fff;
+            color: $white;
         }
 
         &:hover, &:focus {
@@ -69,7 +70,7 @@
 
         & .loaderComponent {
             circle {
-                stroke: #fff;
+                stroke: $white;
             }
         }
     }
@@ -78,7 +79,7 @@
         &, &:visited {
             border-color: $red;
             background-color: $red;
-            color: #fff;
+            color: $white;
         }
 
         &:hover, &:focus {
@@ -88,64 +89,30 @@
 
         & .loaderComponent {
             circle {
-                stroke: #fff;
-            }
-        }
-    }
-
-    &.attention {
-        &, &:visited {
-            border-color: $yellow;
-            background-color: $yellow;
-            color: $text_c;
-        }
-
-        &:hover, &:focus {
-            border-color: darken($yellow, 10%);
-            background-color: darken($yellow, 10%);
-        }
-
-        & .loaderComponent {
-            circle {
-                stroke: #000;
+                stroke: $white;
             }
         }
     }
 
     &.loader {
         pointer-events: none;
+        font-size: 0;
 
         .loaderComponent {
             position: absolute;
         }
     }
 
-    &.loader_left {
-        .loaderComponent {
-            left: 1rem;
-        }
-    }
-
-    &.loader_center {
-
-    }
-
-    &.loader_right {
-        .loaderComponent {
-            right: 1rem;
-        }
-    }
-
     &.is_disabled {
         pointer-events: none;
-        background-color: #fff;
+        background-color: $white;
         font-weight: 500;
-        color: $grey_light_40;
-        border-color: $grey_light_40;
+        color: lighten($grey, 30%);
+        border-color: lighten($grey, 30%);
 
         & .loaderComponent {
             circle {
-                stroke: $grey_light_40;
+                stroke: lighten($grey, 30%);
             }
         }
     }

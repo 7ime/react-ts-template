@@ -13,7 +13,7 @@
 
     &:hover {
         &::-webkit-scrollbar-thumb {
-            background-color: $grey_light_50;
+            background-color: lighten($grey, 30%);
         }
     }
 }

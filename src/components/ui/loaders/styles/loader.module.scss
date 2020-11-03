@@ -46,7 +46,7 @@ $loader_size: 3em;
         stroke-width: 4;
         stroke-dasharray: 1, 200;
         stroke-dashoffset: 0;
-        stroke: $grey_light_70;
+        stroke: lighten($grey, 40%);
         animation: loader-dash 1.5s ease-in-out infinite;
         stroke-linecap: round;
     }
