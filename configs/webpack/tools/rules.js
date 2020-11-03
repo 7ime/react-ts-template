@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const paths = require('./paths')
+const {isDevMode} = require('./helpers')
 
 module.exports = {
     jsFiles: {
@@ -26,14 +27,14 @@ module.exports = {
         ],
         exclude: /node_modules/
     },
-    cssFiles(isDevMode) {
+    cssFiles() {
         return {
             test: /\.(sa|sc|c)ss$/,
             use: [
                 {
                     loader: MiniCssExtractPlugin.loader,
                     options: {
-                        hmr: isDevMode,
+                        hmr: isDevMode(),
                     },
                 },
                 {

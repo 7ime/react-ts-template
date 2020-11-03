@@ -5,8 +5,6 @@ const alias = require('./tools/alias')
 const extensions = require('./tools/extensions')
 const plugins = require('./tools/plugins')
 
-const isDevMode = process.env.NODE_ENV === 'development'
-
 module.exports = function (webpackEnv, argv) {
     return {
         resolve: {
@@ -36,7 +34,7 @@ module.exports = function (webpackEnv, argv) {
                     ],
                     exclude: /node_modules/
                 },
-                rules.cssFiles(isDevMode),
+                rules.cssFiles(),
                 {
                     oneOf: [
                         rules.imgFiles,
@@ -47,7 +45,7 @@ module.exports = function (webpackEnv, argv) {
         },
         plugins: [
             plugins.forkTsCheckerWebpackPlugin(),
-            plugins.miniCssExtractPlugin(isDevMode)
+            plugins.miniCssExtractPlugin()
         ],
     }
 }

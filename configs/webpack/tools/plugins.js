@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
 const dotenv = require('dotenv')
 
-const {resolvePath} = require('./helpers')
+const {resolvePath, isDevMode} = require('./helpers')
 const paths = require('./paths')
 
 const env = dotenv.config({
@@ -39,13 +39,13 @@ module.exports = {
     definePlugin() {
         return new Webpack.DefinePlugin(envKeys)
     },
-    miniCssExtractPlugin(isDevMode) {
+    miniCssExtractPlugin() {
         return new MiniCssExtractPlugin({
-            filename: isDevMode ? '[name].css' : '[name].[contenthash:8].css',
-            chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash:8].css'
+            filename: isDevMode() ? '[name].css' : '[name].[contenthash:8].css',
+            chunkFilename: isDevMode() ? '[id].css' : '[id].[contenthash:8].css'
         })
     },
-    serviceWorker(isDevMode) {
+    serviceWorker() {
         return new ServiceWorkerWebpackPlugin({
             entry: resolvePath(`${paths.source}/service-worker/index.ts`),
         })
@@ -53,7 +53,7 @@ module.exports = {
     forkTsCheckerWebpackPlugin() {
         return new ForkTsCheckerWebpackPlugin(configForkTsCheckerWebpackPlugin)
     },
-    htmlWebpackPlugin(isDevMode, config) {
+    htmlWebpackPlugin(config) {
         return new HtmlWebpackPlugin({
             ...config,
             inject: true,
