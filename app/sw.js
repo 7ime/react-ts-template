@@ -5,7 +5,7 @@ var serviceWorkerOption = {
     "/static/fonts/OpenSans-SemiBold.ba5cde21.ttf",
     "/static/fonts/OpenSans-Bold.1025a6e0.ttf",
     "/main.9030a5b7.css",
-    "/main.7349098c.bundle.js",
+    "/main.a887ee77.bundle.js",
     "/vendors~main.42df32da.bundle.js",
     "/2.f8df9d80.css",
     "/2.2be039a4.bundle.js",
