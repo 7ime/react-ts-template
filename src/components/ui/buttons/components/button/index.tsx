@@ -1,10 +1,10 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import IButton from '../../model'
+import {ButtonProps} from '../../model'
 import Loader from '../../../loaders/components/loader'
 import css from '../../styles/button.module.scss'
 
-const Button = (props: IButton.Props) => {
+const Button = (props: ButtonProps) => {
     const {
         href,
         target = '_self',
