@@ -1,13 +1,13 @@
 import * as React from 'react'
 import {Helmet} from 'react-helmet'
 import HomePresentation from './components/home-presentation'
-import {IRouting} from '@routing/model'
+import {RouterProps} from '@routing/model'
 
-interface IProps extends IRouting.Props {
+interface Props extends RouterProps {
 
 }
 
-const HomeScene = (props: IProps) => {
+const HomeScene = (props: Props) => {
     return (
         <React.Fragment>
             <Helmet>

@@ -1,13 +1,13 @@
 import * as React from 'react'
 import {Helmet} from 'react-helmet'
-import {IRouting} from '@routing/model'
+import {RouterProps} from '@routing/model'
 import RestApi from './components/rest-api'
 
-interface IProps extends IRouting.Props {
+interface Props extends RouterProps {
 
 }
 
-const RestApiScene = (props: IProps) => {
+const RestApiScene = (props: Props) => {
     return (
         <React.Fragment>
             <Helmet>
