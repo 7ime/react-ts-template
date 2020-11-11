@@ -1,11 +1,11 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import {ITextField} from '../../model'
+import {InputProps} from '../../model'
 import css from '../../styles/textfield.module.scss'
 import {useTextField} from '../../hooks/use-textfield'
 import MessageValidationContainer from '../../../message-validation-container'
 
-const Input = (props: ITextField.InputProps) => {
+const Input = (props: InputProps) => {
     const {
         onReset,
         label

@@ -1,22 +1,20 @@
 import * as React from 'react'
-import {IFieldValidationStatus} from '../../../../models/field-validation-status'
+import {FieldValidationStatus} from '@models/ui'
 
-export namespace ITextField {
-    export interface BaseProps extends IFieldValidationStatus {
-        label: string
-        value: string
+export interface TextFieldBaseProps extends FieldValidationStatus {
+    label: string
+    value: string
 
-        disabled?: boolean
-        autofocus?: boolean
+    disabled?: boolean
+    autofocus?: boolean
 
-        onChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): unknown
-    }
+    onChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): unknown
+}
 
-    export interface TextareaProps extends BaseProps {
-        rows?: number
-    }
+export interface TextareaProps extends TextFieldBaseProps {
+    rows?: number
+}
 
-    export interface InputProps extends BaseProps {
-        onReset?(): unknown
-    }
+export interface InputProps extends TextFieldBaseProps {
+    onReset?(): unknown
 }

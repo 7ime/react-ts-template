@@ -1,11 +1,11 @@
 import * as React from 'react'
 import classnames from 'classnames'
 import {v4 as uuid} from 'uuid'
-import {ICheckbox} from '../../model'
+import {CheckboxProps} from '../../model'
 import css from '../../styles/checkbox.module.scss'
 import MessageValidationContainer from '../../../message-validation-container'
 
-const Checkbox = (props: ICheckbox.Props) => {
+const Checkbox = (props: CheckboxProps) => {
     const {
         checked: externalChecked = false,
         type = '',

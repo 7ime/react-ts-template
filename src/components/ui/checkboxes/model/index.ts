@@ -1,14 +1,12 @@
 import * as React from 'react'
-import {IFieldValidationStatus} from '@models/field-validation-status'
+import {FieldValidationStatus} from '@models/ui'
 
-export namespace ICheckbox{
-    export interface Props extends IFieldValidationStatus {
-        checked: boolean
-        children: React.ReactChild | React.ReactNode
+export interface CheckboxProps extends FieldValidationStatus {
+    checked: boolean
+    children: React.ReactChild | React.ReactNode
 
-        type?: 'primary' | 'secondary'
-        disabled?: boolean
+    type?: 'primary' | 'secondary'
+    disabled?: boolean
 
-        onChange(event: React.ChangeEvent<HTMLInputElement>): unknown
-    }
+    onChange(event: React.ChangeEvent<HTMLInputElement>): unknown
 }

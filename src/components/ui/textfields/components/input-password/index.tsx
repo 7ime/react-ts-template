@@ -1,6 +1,6 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import {ITextField} from '../../model'
+import {InputProps} from '../../model'
 import css from '../../styles/textfield.module.scss'
 import {useTextField} from '../../hooks/use-textfield'
 import MessageValidationContainer from '../../../message-validation-container'
@@ -10,7 +10,7 @@ enum EType {
     text = 'text',
 }
 
-const InputPassword = (props: ITextField.InputProps) => {
+const InputPassword = (props: InputProps) => {
     const {
         onReset,
         label

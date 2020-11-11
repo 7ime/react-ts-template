@@ -1,11 +1,11 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import {ITextField} from '../../model'
+import {TextareaProps} from '../../model'
 import css from '../../styles/textfield.module.scss'
 import {useTextField} from '../../hooks/use-textfield'
 import MessageValidationContainer from '../../../message-validation-container'
 
-const Textarea = (props: ITextField.TextareaProps) => {
+const Textarea = (props: TextareaProps) => {
     const {
         label,
         rows = 5

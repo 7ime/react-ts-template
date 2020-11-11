@@ -1,9 +1,9 @@
-import {ITextField} from '../../model'
 import * as React from 'react'
 import classnames from 'classnames'
 import css from '../../styles/textfield.module.scss'
+import {TextFieldBaseProps} from '@components/ui/textfields/model'
 
-export const useTextField = <T extends {value: string, focus(): unknown}>(props: ITextField.BaseProps) => {
+export const useTextField = <T extends {value: string, focus(): unknown}>(props: TextFieldBaseProps) => {
     const {
         autofocus = false,
         disabled = false,

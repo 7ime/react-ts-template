@@ -1,11 +1,11 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import {IRadio} from '../../model'
+import {RadioGroupProps, RadioProps} from '../../model'
 import css from '../../styles/radio-group.module.scss'
 import MessageValidationContainer from '../../../message-validation-container'
-import {invariant} from '../../../../../helpers/invariant'
+import {invariant} from '@helpers/invariant'
 
-const RadioGroup = (props: IRadio.GroupProps) => {
+const RadioGroup = (props: RadioGroupProps) => {
     const {
         value,
         name,
@@ -32,7 +32,7 @@ const RadioGroup = (props: IRadio.GroupProps) => {
 
                     const checked = child.props.value === value
 
-                    return React.cloneElement<IRadio.ButtonProps>(child, {
+                    return React.cloneElement<RadioProps>(child, {
                         onChange: handleChange,
                         name,
                         checked,

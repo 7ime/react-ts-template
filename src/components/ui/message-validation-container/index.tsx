@@ -1,14 +1,14 @@
 import * as React from 'react'
 import classnames from 'classnames'
 import css from './index.module.scss'
+import {ParentClass} from '@models/ui'
 
-interface IProps {
+interface Props extends ParentClass {
     type?: 'error' | 'success'
-    parentClass?: string
     messageList: string[]
 }
 
-const MessageValidationContainer = (props: IProps) => {
+const MessageValidationContainer = (props: Props) => {
     const {
         type = '',
         parentClass,

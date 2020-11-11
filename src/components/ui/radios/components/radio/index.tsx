@@ -1,10 +1,10 @@
 import * as React from 'react'
-import {IRadio} from '../../model'
+import {RadioProps} from '../../model'
 import {v4 as uuid} from 'uuid'
 import classnames from 'classnames'
 import css from '../../styles/radio.module.scss'
 
-const Radio = (props: IRadio.ButtonProps) => {
+const Radio = (props: RadioProps) => {
     const {
         checked: externalChecked = false,
         type = '',

@@ -1,9 +1,9 @@
 import * as React from 'react'
-import ILoader from '../../model'
 import css from '../../styles/loader.module.scss'
 import classnames from 'classnames'
+import {LoaderProps} from '@components/ui/loaders/model'
 
-const Loader = (props: ILoader.Props) => {
+const Loader = (props: LoaderProps) => {
     const {
         type = '',
         size = ''
