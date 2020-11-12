@@ -1,4 +1,17 @@
+@import '~@styles/variables/colors.module.scss';
+@import '~@styles/variables/shared.module.scss';
+
 .app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: $bg_color;
+
+    &:global(.theme-dark) {
+        background-color: $bg_color_dark;
+        color: $text_color_dark;
+    }
+
     .header {
         position: fixed;
         width: 100%;

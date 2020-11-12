@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
+import classnames from 'classnames'
 import Header from '../common/header'
 import {routers} from '@routing/router'
 import {IRouting} from '@routing/model'
@@ -9,6 +10,7 @@ import Loader from '../ui/loaders/components/loader'
 import {useDispatch} from 'react-redux'
 import {UiAction} from '@store/ui'
 import {WebNotificationAction} from '@store/web-notification'
+import ThemeContext from '@components/context/theme-context'
 
 const getLoaderElem = () => {
     return (
@@ -20,6 +22,7 @@ const getLoaderElem = () => {
 
 const App = () => {
     const dispatch = useDispatch()
+    const theme = React.useContext(ThemeContext)
 
     React.useEffect(() => {
         dispatch(UiAction.removePreloader())
@@ -28,8 +31,10 @@ const App = () => {
 
     const isLogged = true
 
+    const classNames = classnames(css.app, theme)
+
     return (
-        <div className={css.app}>
+        <div className={classNames}>
             <div className={css.content}>
                 <div className={css.header}>
                     <Header />

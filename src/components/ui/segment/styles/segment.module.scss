@@ -1,0 +1,12 @@
+@import '~@styles/variables/colors.module.scss';
+@import '~@styles/variables/shared.module.scss';
+
+.segment {
+    padding: 2rem;
+    border: 1px solid lighten($grey, 35%);
+
+    &:global(.theme-dark) {
+        background-color: $grey_dark;
+        border-color: lighten($grey_dark, 5%);
+    }
+}
