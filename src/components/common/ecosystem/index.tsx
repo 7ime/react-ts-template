@@ -7,7 +7,7 @@ import css from './index.module.scss'
 const Ecosystem = () => {
     const theme = React.useContext(ThemeContext)
 
-    const classNames = classnames(css.ecosystem, theme)
+    const classNames = classnames(css.ecosystem, css[theme])
 
     return (
         <div className={classNames}>

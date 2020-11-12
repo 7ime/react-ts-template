@@ -31,7 +31,7 @@ const App = () => {
 
     const isLogged = true
 
-    const classNames = classnames(css.app, theme)
+    const classNames = classnames(css.app, css[theme])
 
     return (
         <div className={classNames}>

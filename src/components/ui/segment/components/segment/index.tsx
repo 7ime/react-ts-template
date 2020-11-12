@@ -15,7 +15,7 @@ const Segment = (props: ISegment.Props) => {
     const classNames = classnames(
         css.segment,
         parentClass,
-        theme
+        css[theme]
     )
 
     return (
