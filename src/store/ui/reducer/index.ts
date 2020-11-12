@@ -9,4 +9,7 @@ export const reducer = createReducer(UiState.initialState, (builder) => {
         .addCase(UiAction.setTheme, (state, {payload}) => {
             state.theme = payload
         })
+        .addCase(UiAction.setSystemTheme, (state, {payload}) => {
+            state.systemTheme = payload
+        })
 })

@@ -15,11 +15,13 @@ import saga from '@store/saga'
 import {sagaMiddleware} from '@store/middleware'
 import {SwAction} from '@store/sw'
 import Theme from '@components/common/theme'
+import {UiAction} from '@store/ui'
 
 sagaMiddleware.run(saga)
 
 const store = getAppStore()
 store.dispatch(SwAction.unregister())
+store.dispatch(UiAction.initTheme())
 
 ReactDOM.render((
     <React.StrictMode>
