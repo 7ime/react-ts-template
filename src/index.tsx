@@ -18,7 +18,7 @@ import {SwAction} from '@store/sw'
 sagaMiddleware.run(saga)
 
 const store = getAppStore()
-store.dispatch(SwAction.register())
+store.dispatch(SwAction.unregister())
 
 ReactDOM.render((
     <React.StrictMode>
