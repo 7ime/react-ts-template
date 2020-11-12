@@ -93,7 +93,7 @@ const links = [
     {
         title: 'Lodash',
         link: 'https://lodash.com/',
-        icon: lodashIcon,
+        icon: javascriptIcon,
     },
     {
         title: 'I18next',
