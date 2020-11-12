@@ -6,10 +6,7 @@ export const reducer = createReducer(UiState.initialState, (builder) => {
         .addCase(UiAction.preloaderDeleted, (state) => {
             state.preloaderExist = false
         })
-        .addCase(UiAction.setUserTheme, (state, {payload}) => {
-            state.userTheme = payload
-        })
-        .addCase(UiAction.setSystemTheme, (state, {payload}) => {
-            state.systemTheme = payload
+        .addCase(UiAction.setTheme, (state, {payload}) => {
+            state.theme = payload
         })
 })

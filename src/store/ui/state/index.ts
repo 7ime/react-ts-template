@@ -1,13 +1,14 @@
 import {ETheme} from '@constants/theme'
+import {Maybe} from '@toolbox/custom-types'
 
 export interface IState {
     preloaderExist: boolean
-    userTheme: ETheme
-    systemTheme: ETheme
+    theme: ETheme
+    systemTheme: Maybe<ETheme>
 }
 
 export const initialState: IState = {
     preloaderExist: true,
-    userTheme: ETheme.dark,
-    systemTheme: ETheme.dark,
+    theme: ETheme.light,
+    systemTheme: null,
 }
