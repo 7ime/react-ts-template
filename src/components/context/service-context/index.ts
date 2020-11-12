@@ -4,6 +4,6 @@ import getService from '@services/index'
 
 const ServiceContext = React.createContext(getService())
 
-ServiceContext.displayName = 'ServiceContext' // this name for devtools
+ServiceContext.displayName = 'ServiceContext'
 
 export default ServiceContext
