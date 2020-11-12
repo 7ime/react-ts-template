@@ -2,6 +2,7 @@ import {call, put, takeLatest} from 'redux-saga/effects'
 import getService from '@services/index'
 import {IService} from '@services/model'
 import {UiAction} from '../index'
+import {ETheme, PREFERS_COLOR_SCHEME} from '@constants/theme'
 
 const service: IService = getService()
 
@@ -18,6 +19,18 @@ export function* initTheme() {
 
     if (themeFromLocalStorage) {
         yield put(UiAction.setTheme(themeFromLocalStorage))
+    }
+
+    const lightMatch = window.matchMedia(PREFERS_COLOR_SCHEME.light)
+
+    if (lightMatch.matches) {
+        yield put(UiAction.setSystemTheme(ETheme.light))
+    }
+
+    const darkMatch = window.matchMedia(PREFERS_COLOR_SCHEME.dark)
+
+    if (darkMatch.matches) {
+        yield put(UiAction.setSystemTheme(ETheme.dark))
     }
 }
 
