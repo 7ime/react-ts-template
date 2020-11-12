@@ -2,7 +2,59 @@
 @import '~@styles/variables/shared.module.scss';
 
 .ecosystem {
-    &.theme-dark {
+    .list {
+        display: grid;
+        grid-gap: 1rem;
+        grid-row-gap: 2rem;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(10, 1fr);
+    }
 
+    .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .iconWrapper {
+        transition: $transition;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        border: 1px solid transparent;
+    }
+
+
+    &.theme-dark {
+        .iconWrapper {
+            background-color: $white;
+        }
+    }
+
+    .icon {
+        width: 3rem;
+        height: 3rem;
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .title {
+        transition: $transition;
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    &.theme-dark {
+        .title {
+            padding-top: 1rem;
+        }
     }
 }
