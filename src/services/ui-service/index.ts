@@ -1,5 +1,5 @@
 import {IUiService} from './model'
-import {ETheme, LOCAL_STORAGE_THEME_KEY} from '@constants/theme'
+import {ETheme, ETypesThemes, LOCAL_STORAGE_PRIORITY_THEME_KEY, LOCAL_STORAGE_THEME_KEY} from '@constants/theme'
 import {Maybe} from '@toolbox/custom-types'
 
 export default class UiService implements IUiService {
@@ -10,11 +10,19 @@ export default class UiService implements IUiService {
         return !!(node && node.parentNode && node.parentNode.removeChild(node))
     }
 
-    getTheme(): Maybe<ETheme> {
+    getCustomTheme(): Maybe<ETheme> {
         return localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Maybe<ETheme>
     }
 
-    setTheme(theme: ETheme) {
+    setCustomTheme(theme: ETheme) {
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme)
+    }
+
+    getPriorityTheme(): Maybe<ETypesThemes> {
+        return localStorage.getItem(LOCAL_STORAGE_PRIORITY_THEME_KEY) as Maybe<ETypesThemes>
+    }
+
+    setPriorityTheme(priorityTheme: ETypesThemes) {
+        localStorage.setItem(LOCAL_STORAGE_PRIORITY_THEME_KEY, priorityTheme)
     }
 }

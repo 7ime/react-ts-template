@@ -2,7 +2,7 @@ import {call, put, takeLatest} from 'redux-saga/effects'
 import getService from '@services/index'
 import {IService} from '@services/model'
 import {UiAction} from '../index'
-import {ETheme, PREFERS_COLOR_SCHEME} from '@constants/theme'
+import {ETheme, ETypesThemes, PREFERS_COLOR_SCHEME} from '@constants/theme'
 import i18next from '@i18n/index'
 
 const service: IService = getService()
@@ -16,10 +16,15 @@ export function* removePreloader() {
 }
 
 export function* initTheme() {
-    const themeFromLocalStorage = service.uiService.getTheme()
+    const themeFromLocalStorage = service.uiService.getCustomTheme()
+    const priorityThemeFromLocalStorage = service.uiService.getPriorityTheme()
 
     if (themeFromLocalStorage) {
-        yield put(UiAction.setTheme(themeFromLocalStorage))
+        yield put(UiAction.setCustomTheme(themeFromLocalStorage))
+    }
+
+    if (priorityThemeFromLocalStorage) {
+        yield put(UiAction.setPriorityTheme(priorityThemeFromLocalStorage))
     }
 
     const lightMatch = window.matchMedia(PREFERS_COLOR_SCHEME.light)
@@ -35,8 +40,15 @@ export function* initTheme() {
     }
 }
 
-export function setTheme(action: ReturnType<typeof UiAction.setTheme>) {
-    service.uiService.setTheme(action.payload)
+export function* setCustomTheme(action: ReturnType<typeof UiAction.setCustomTheme>) {
+    service.uiService.setCustomTheme(action.payload)
+    service.uiService.setPriorityTheme(ETypesThemes.custom)
+
+    yield put(UiAction.setPriorityTheme(ETypesThemes.custom))
+}
+
+export function setSystemTheme() {
+    service.uiService.setPriorityTheme(ETypesThemes.system)
 }
 
 export function* changeLanguage(action: ReturnType<typeof UiAction.changeLanguage>) {
@@ -47,6 +59,7 @@ export function* changeLanguage(action: ReturnType<typeof UiAction.changeLanguag
 export function* rootSaga() {
     yield takeLatest([UiAction.removePreloader], removePreloader)
     yield takeLatest([UiAction.initTheme], initTheme)
-    yield takeLatest([UiAction.setTheme], setTheme)
+    yield takeLatest([UiAction.setCustomTheme], setCustomTheme)
+    yield takeLatest([UiAction.setSystemTheme], setSystemTheme)
     yield takeLatest([UiAction.changeLanguage], changeLanguage)
 }

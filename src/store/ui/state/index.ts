@@ -1,17 +1,19 @@
-import {ETheme} from '@constants/theme'
+import {ETheme, ETypesThemes} from '@constants/theme'
 import {Maybe} from '@toolbox/custom-types'
 import {EI18nLanguages} from '@constants/i18n'
 
 export interface IState {
     preloaderExist: boolean
-    theme: ETheme
+    customTheme: ETheme
     systemTheme: Maybe<ETheme>
+    priorityTheme: Maybe<ETypesThemes>
     language: Maybe<EI18nLanguages>
 }
 
 export const initialState: IState = {
     preloaderExist: true,
-    theme: ETheme.light,
+    customTheme: ETheme.light,
     systemTheme: null,
+    priorityTheme: null,
     language: null
 }
