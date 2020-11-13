@@ -2,8 +2,6 @@ import * as React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import classnames from 'classnames'
 import Header from '../common/header'
-import {routers} from '@routing/router'
-import {IRouting} from '@routing/model'
 import css from './index.module.scss'
 import Routes from '@routing/routes'
 import Loader from '../ui/loaders/components/loader'
@@ -11,6 +9,10 @@ import {useDispatch} from 'react-redux'
 import {UiAction} from '@store/ui'
 import {WebNotificationAction} from '@store/web-notification'
 import ThemeContext from '@components/context/theme-context'
+import {useTranslation} from 'react-i18next'
+
+const HomeScene = React.lazy(() => import('@components/scenes/home-scene'))
+const RestApiScene = React.lazy(() => import('@components/scenes/rest-api-scene'))
 
 const getLoaderElem = () => {
     return (
@@ -21,6 +23,7 @@ const getLoaderElem = () => {
 }
 
 const App = () => {
+    useTranslation()
     const dispatch = useDispatch()
     const theme = React.useContext(ThemeContext)
 
@@ -28,8 +31,6 @@ const App = () => {
         dispatch(UiAction.removePreloader())
         dispatch(WebNotificationAction.requestPermission())
     }, [])
-
-    const isLogged = true
 
     const classNames = classnames(css.app, css[theme])
 
@@ -41,22 +42,8 @@ const App = () => {
                 </div>
                 <React.Suspense fallback={getLoaderElem()}>
                     <Switch>
-                        {routers.map((router: IRouting.Router) => {
-                            const {
-                                component,
-                                path,
-                                exact,
-                                checkAuth = false
-                            } = router
-
-                            if (!checkAuth || checkAuth && isLogged) {
-                                return (
-                                    <Route key={path} path={path} exact={exact} component={component}/>
-                                )
-                            }
-
-                            return null
-                        })}
+                        <Route path={Routes.home.root()} component={HomeScene} exact/>
+                        <Route path={Routes.restApi.root()} component={RestApiScene}/>
                         <Redirect from='*' to={Routes.home.root()} exact/>
                     </Switch>
                 </React.Suspense>
