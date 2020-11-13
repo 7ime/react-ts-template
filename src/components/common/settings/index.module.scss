@@ -3,6 +3,11 @@
 
 .settings {
     width: 40rem;
+    color: #777;
+
+    &.theme-dark {
+        color: $text_color_dark;
+    }
 
     .segment {
         padding: 1rem 2rem;
