@@ -4,28 +4,32 @@ import ThemeContext from '@components/context/theme-context'
 import Segment from '@components/ui/segment/components/segment'
 import css from './index.module.scss'
 import Switch from '@components/ui/switches/components/switch'
+import {useTranslation} from 'react-i18next'
+import {useDispatch} from 'react-redux'
+import {ETheme} from '@constants/theme'
+import {UiAction} from '@store/ui'
 
 const Settings = () => {
     const theme = React.useContext(ThemeContext)
+    const {t} = useTranslation()
+    const dispatch = useDispatch()
 
     const classNames = classnames(css.settings, css[theme])
 
-    const [value, setValue] = React.useState(true)
-
     const handleChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(event.target.checked)
+        const theme = event.target.checked ? ETheme.dark : ETheme.light
+
+        dispatch(UiAction.setTheme(theme))
     }, [])
 
     return (
         <div className={classNames}>
-            <Segment>
-                <Switch enabled={value} onChange={handleChange}/>
-                <br/>
-                <Switch enabled={value} type={'primary'} onChange={handleChange}/>
-                <br/>
-                <Switch enabled={value} type={'secondary'} onChange={handleChange}/>
-                <br/>
-                <Switch enabled={value} disabled onChange={handleChange}/>
+            <Segment parentClass={css.segment}>
+
+                <div className={css.box}>
+                    <div className={css.title}>{t('settings:enableCustomTheme')}</div>
+                    <Switch enabled={theme === ETheme.dark} type={'secondary'} onChange={handleChange}/>
+                </div>
             </Segment>
         </div>
     )

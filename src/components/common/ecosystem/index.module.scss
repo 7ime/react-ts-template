@@ -21,7 +21,6 @@
     }
 
     .iconWrapper {
-        transition: $transition;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -48,7 +47,6 @@
     }
 
     .title {
-        transition: $transition;
         text-align: center;
         padding: 1rem 1rem 0;
     }
