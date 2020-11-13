@@ -5,10 +5,15 @@
     border-radius: $radius;
     display: flex;
     flex-direction: column;
+
+    .segment {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+    }
 }
 
 .list {
-    margin-top: 3rem;
+    margin-top: 2.8rem;
 
     .item {
         margin-bottom: 1rem;

@@ -5,6 +5,7 @@ import {JsonPlaceholderAction, JsonPlaceholderSelector} from '../../../../../sto
 import {IJsonPlaceholder} from '@entities/jsonplaceholder'
 import {Maybe} from '@toolbox/custom-types'
 import ServiceContext from '../../../../context/service-context'
+import Segment from '@components/ui/segment/components/segment'
 
 interface IProps {
 
@@ -45,10 +46,12 @@ const RestApi = (props: IProps) => {
                         {
                             posts.map(({id, title, body}, index) => {
                                 return (
-                                    <div key={id} className={css.item}>
-                                        <div className={css.title}>{index + 1}: {title}</div>
-                                        <div className={css.text}>{body}</div>
-                                    </div>
+                                    <Segment key={id} parentClass={css.segment}>
+                                        <div className={css.item}>
+                                            <div className={css.title}>{index + 1}: {title}</div>
+                                            <div className={css.text}>{body}</div>
+                                        </div>
+                                    </Segment>
                                 )
                             })
                         }

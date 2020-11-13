@@ -14,8 +14,6 @@ import reduxIcon from '@images/icons/redux.svg'
 import reduxSagaIcon from '@images/icons/redux-saga.png'
 import sassIcon from '@images/icons/sass.png'
 import storybookIcon from '@images/icons/storybook.png'
-import reactRouterIcon from '@images/icons/react-router.jpeg'
-import lodashIcon from '@images/icons/lodash.png'
 import eslintIcon from '@images/icons/eslint.svg'
 import cssIcon from '@images/icons/css.png'
 
@@ -53,7 +51,7 @@ const links = [
     {
         title: 'React Router',
         link: 'https://reactrouter.com/',
-        icon: reactRouterIcon,
+        icon: reactIcon,
     },
     {
         title: 'Webpack',

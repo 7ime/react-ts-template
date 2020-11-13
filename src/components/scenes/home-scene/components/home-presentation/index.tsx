@@ -9,8 +9,8 @@ const HomePresentation = () => {
 
     return (
         <div className={css.homePresentation}>
+            <h4 className={css.title}>{t(`${EI18nNameSpaces.welcome}:title`)}</h4>
             <Ecosystem/>
-            <h3 className={css.title}>{t(`${EI18nNameSpaces.welcome}:title`, {name: 'world'})}</h3>
         </div>
     )
 }

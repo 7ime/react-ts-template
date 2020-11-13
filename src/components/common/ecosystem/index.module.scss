@@ -34,8 +34,8 @@
 
     &.theme-dark {
         .iconWrapper {
-            background-color: $white;
-            border-color: $white;
+            background-color: $bg_color_dark;
+            border-color: lighten($grey_dark, 5%);
         }
     }
 
