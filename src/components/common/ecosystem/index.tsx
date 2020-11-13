@@ -128,7 +128,7 @@ const Ecosystem = () => {
 
     return (
         <div className={classNames}>
-            <Segment>{
+            <Segment>
                 <div className={css.list}>
                     {links.map(link => {
                         return (
@@ -144,7 +144,7 @@ const Ecosystem = () => {
                         )
                     })}
                 </div>
-            }</Segment>
+            </Segment>
         </div>
     )
 }

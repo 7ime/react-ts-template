@@ -9,6 +9,6 @@ export interface IState {
 
 export const initialState: IState = {
     preloaderExist: true,
-    theme: ETheme.light,
+    theme: ETheme.dark,
     systemTheme: null,
 }
