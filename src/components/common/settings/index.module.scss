@@ -6,6 +6,16 @@
 
     .segment {
         padding: 1rem 2rem;
+        border-bottom-width: 0;
+    }
+
+    .segmentLast {
+        border-bottom-width: 1px;
+    }
+
+    .segmentIndented {
+        padding: 1rem 2rem;
+        margin-top: 1rem;
     }
 
     .box {
