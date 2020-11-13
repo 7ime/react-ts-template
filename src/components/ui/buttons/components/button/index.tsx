@@ -3,8 +3,11 @@ import classnames from 'classnames'
 import IButton from '../../model'
 import Loader from '../../../loaders/components/loader'
 import css from '../../styles/button.module.scss'
+import ThemeContext from '@components/context/theme-context'
 
 const Button = (props: IButton.Props) => {
+    const theme = React.useContext(ThemeContext)
+
     const {
         href,
         target = '_self',
@@ -24,7 +27,8 @@ const Button = (props: IButton.Props) => {
         {[css[shape]]: shape},
         {[css.is_disabled]: disabled},
         {[css.loader]: loader},
-        parentClass
+        parentClass,
+        theme
     )
 
     const TagName = href ? 'a' : 'button'

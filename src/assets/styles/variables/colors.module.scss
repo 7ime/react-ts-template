@@ -4,6 +4,7 @@ $green: #1bc47d;
 $blue: #1877f2;
 $red: #F04D42;
 $grey: #999999;
+$grey_dark: #1F1F1F;
 
 $primary: $blue;
 $secondary: $green;
@@ -11,3 +12,7 @@ $success: $green;
 $error: $red;
 
 $text_color: $black;
+$text_color_dark: lighten($grey, 30%);
+
+$bg_color: $white;
+$bg_color_dark: #0F0F0F;

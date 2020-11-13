@@ -4,6 +4,13 @@
 .header {
     box-shadow: 0 0 2rem rgba($grey, 0.2);
     background-color: $white;
+    border: 1px solid $white;
+
+    &.theme-dark {
+        background-color: $bg_color_dark;
+        border-color: lighten($grey_dark, 5%);
+        box-shadow: none;
+    }
 
     .menu {
         display: flex;
@@ -27,6 +34,16 @@
 
         &:hover {
 
+        }
+    }
+
+    &.theme-dark .link {
+        &.is_active {
+            color: $text_color_dark;
+        }
+
+        &, &:active {
+            color: lighten($grey_dark, 35%);
         }
     }
 }

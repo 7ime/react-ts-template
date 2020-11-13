@@ -9,4 +9,5 @@ export enum EI18nNameSpaces {
     welcome = 'welcome',
     shared = 'shared',
     nav = 'nav',
+    settings = 'settings',
 }
