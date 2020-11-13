@@ -1,0 +1,60 @@
+@import "~@styles/variables/colors.module.scss";
+@import "~@styles/variables/shared.module.scss";
+
+.switch {
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    width: 3.5em;
+    height: 2.2em;
+    border-radius: 1.2em;
+    background-color: lighten($grey, 30%);
+    transition: $transition;
+
+    &.theme-dark {
+        background-color: lighten($grey_dark, 10%);
+    }
+
+    &.is_disabled {
+        pointer-events: none;
+        opacity: 0.5;
+
+        &.theme-dark {
+            opacity: 1;
+        }
+    }
+
+    .pseudoControl {
+        transition: $transition;
+        position: absolute;
+        top: 0.2em;
+        left: 0.2em;
+        width: 1.8em;
+        height: 1.8em;
+        border-radius: 50%;
+        background-color: #fff;
+    }
+
+    &.is_enabled {
+        .pseudoControl {
+            transform: translateX(1.3em);
+        }
+    }
+
+    &.primary {
+        &.is_enabled {
+            background-color: $primary;
+        }
+    }
+
+    &.secondary {
+        &.is_enabled {
+            background-color: $secondary;
+        }
+    }
+
+    .control {
+        display: none;
+    }
+}
