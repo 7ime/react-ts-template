@@ -20,6 +20,10 @@
         }
     }
 
+    &.theme-dark .item {
+        color: $text_color_dark;
+    }
+
     .iconWrapper {
         display: flex;
         justify-content: center;
@@ -33,7 +37,7 @@
 
     &.theme-dark {
         .iconWrapper {
-            background-color: $bg_color_dark;
+            background-color: $grey_dark;
             border-color: lighten($grey_dark, 5%);
         }
     }
