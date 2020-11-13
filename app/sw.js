@@ -14,7 +14,7 @@ var serviceWorkerOption = {
     "/static/media/storybook.cdc65343.png",
     "/static/media/css.9b4a2a12.png",
     "/main.3dd93f02.css",
-    "/main.5120b83c.bundle.js",
+    "/main.e7a7a872.bundle.js",
     "/vendors~main.bb560985.bundle.js",
     "/2.517ab1df.css",
     "/2.45c73f52.bundle.js",
