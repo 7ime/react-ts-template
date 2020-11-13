@@ -47,8 +47,8 @@ export function* setCustomTheme(action: ReturnType<typeof UiAction.setCustomThem
     yield put(UiAction.setPriorityTheme(ETypesThemes.custom))
 }
 
-export function setSystemTheme() {
-    service.uiService.setPriorityTheme(ETypesThemes.system)
+export function setPriorityTheme(action: ReturnType<typeof UiAction.setPriorityTheme>) {
+    service.uiService.setPriorityTheme(action.payload)
 }
 
 export function* changeLanguage(action: ReturnType<typeof UiAction.changeLanguage>) {
@@ -60,6 +60,6 @@ export function* rootSaga() {
     yield takeLatest([UiAction.removePreloader], removePreloader)
     yield takeLatest([UiAction.initTheme], initTheme)
     yield takeLatest([UiAction.setCustomTheme], setCustomTheme)
-    yield takeLatest([UiAction.setSystemTheme], setSystemTheme)
+    yield takeLatest([UiAction.setPriorityTheme], setPriorityTheme)
     yield takeLatest([UiAction.changeLanguage], changeLanguage)
 }
