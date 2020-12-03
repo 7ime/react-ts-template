@@ -25,7 +25,7 @@ module.exports = function (webpackEnv, argv) {
             contentBase: resolvePath(paths.source),
             port: 8081,
             hot: true,
-            open: false,
+            open: true,
             index: 'index.html',
             watchContentBase: true,
             historyApiFallback: true,
