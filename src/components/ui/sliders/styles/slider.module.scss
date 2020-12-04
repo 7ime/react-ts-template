@@ -1,0 +1,45 @@
+@import '~@styles/variables/colors.module.scss';
+@import '~@styles/variables/shared.module.scss';
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    .next, .prev {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 5.5rem;
+        height: 5.5rem;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        background-color: $white;
+        border: none;
+        outline: none;
+        box-shadow: 0 0 5px rgba($black, 0.1);
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    .next {
+        background-image: url('~@images/icons/chevron-right.svg');
+        right: 1rem;
+    }
+
+    .prev {
+        background-image: url('~@images/icons/chevron-left.svg');
+        left: 1rem;
+    }
+}
+
+.sliderTrack {
+    position: relative;
+    display: flex;
+    transition: 0.3s ease-in-out;
+}
+
+.slide {
+    position: relative;
+}
