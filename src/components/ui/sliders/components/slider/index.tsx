@@ -64,7 +64,7 @@ const Slider = (props: ISlider.SliderProps) => {
     const calculation = React.useCallback((direction: 'right' | 'left') => {
         if (!sliderMetrics) return
 
-        const result = getOffset(sliderMetrics, slidesMetrics, currentSlide, slidesToScroll, offset, direction)
+        const result = getOffset(sliderMetrics, slidesMetrics, currentSlide, slidesToScroll, direction)
 
         setOffset(result.offset)
         setCurrentSlide(result.currentSlide)

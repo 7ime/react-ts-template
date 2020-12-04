@@ -1,3 +1,3 @@
 export const arrayIndexInRange = (arr: unknown[], index: number): boolean => {
-    return index >= arr.length - 1 && index < arr.length
+    return index >= 0 && index < arr.length
 }
