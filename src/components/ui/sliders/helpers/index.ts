@@ -1,12 +1,12 @@
 import ISlider from '@components/ui/sliders/model'
 import {arrayIndexInRange} from '@helpers/array-index-in-range'
 
-export const initCurrentSlide = (width: number, slidesMetrics: ISlider.SlideMetrics[]): number => {
-    return slidesMetrics.reduce((prev: number, item, index) => {
-        if (item.x + item.width <= width) return index
+export const initCurrentSlide = (width: number, slidesMetrics: ISlider.SlideMetrics[]): [number, number] => {
+    return slidesMetrics.reduce((prev: [number, number], item, index) => {
+        if (item.x + item.width <= width) return [0, index]
 
         return prev
-    }, 0)
+    }, [0, 0])
 }
 
 export const showButtonPrev = (width: number, trackWidth: number, offset: number) => {
@@ -21,24 +21,26 @@ export const showButtonNext = (width: number, trackWidth: number, offset: number
     return trackWidth + offset > width
 }
 
-export const getNewCurrentSlide = (slidesMetrics: ISlider.SlideMetrics[], currentSlide: number, slidesToScroll: number, direction: 'left' | 'right'): number => {
+export const getNewCurrentSlide = (slidesMetrics: ISlider.SlideMetrics[], currentSlide: [number, number], slidesToScroll: number, direction: 'left' | 'right'): [number, number] => {
     const isLeft = direction === 'left'
 
-    let result = currentSlide + (isLeft ? -slidesToScroll : slidesToScroll)
+    const [leftBoundary, rightBoundary] = currentSlide
 
-    while (!arrayIndexInRange(slidesMetrics, result)) {
+    let result: [number, number] = isLeft ? [leftBoundary - slidesToScroll, leftBoundary - 1] : [rightBoundary + 1, rightBoundary + slidesToScroll]
+
+    while (!arrayIndexInRange(slidesMetrics, result[0]) && !arrayIndexInRange(slidesMetrics, result[1])) {
         if (isLeft) {
-            result++
+            result = [result[0] + 1, result[1]]
         } else {
-            result--
+            result = [result[0], result[1] - 1]
         }
     }
 
     return result
 }
 
-export const getMetricsSlidesToScroll = (slidesMetrics: ISlider.SlideMetrics[], currentSlide: number, newCurrentSlide: number, direction: 'left' | 'right') => {
-    const arr = direction === 'left' ? slidesMetrics.slice(newCurrentSlide, currentSlide) : slidesMetrics.slice(currentSlide + 1, newCurrentSlide + 1)
+export const getMetricsSlidesToScroll = (slidesMetrics: ISlider.SlideMetrics[], [leftBoundary, rightBoundary]: [number, number]) => {
+    const arr = slidesMetrics.slice(leftBoundary, rightBoundary + 1)
 
     return {
         x: arr[0].x,
@@ -55,13 +57,13 @@ export const getIndent = (sliderWidth: number, slidesWidth: number) => {
 export const getOffset = (
     sliderMetrics: ISlider.SliderMetrics,
     slidesMetrics: ISlider.SlideMetrics[],
-    currentSlide: number,
+    currentSlide: [number, number],
     slidesToScroll: number,
     direction: 'left' | 'right'
 ) => {
     const newCurrentSlide = getNewCurrentSlide(slidesMetrics, currentSlide, slidesToScroll, direction)
 
-    const metricsSlidesToScroll = getMetricsSlidesToScroll(slidesMetrics, currentSlide, newCurrentSlide, direction)
+    const metricsSlidesToScroll = getMetricsSlidesToScroll(slidesMetrics, newCurrentSlide)
 
     const indent = getIndent(sliderMetrics.width, metricsSlidesToScroll.width)
 

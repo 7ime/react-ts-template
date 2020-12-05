@@ -12,7 +12,7 @@ const Slider = (props: ISlider.SliderProps) => {
     const [sliderMetrics, setSliderMetric] = React.useState<ISlider.SliderMetrics | null>(null)
     const [slidesMetrics, setSlideMetrics] = React.useState<ISlider.SlideMetrics[]>([])
     const [offset, setOffset] = React.useState(0)
-    const [currentSlide, setCurrentSlide] = React.useState(0)
+    const [currentSlide, setCurrentSlide] = React.useState<[number, number]>([0, 0])
 
     const {
         children,
