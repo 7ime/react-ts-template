@@ -37,6 +37,21 @@ export const getNewCurrentSlide = (slidesMetrics: ISlider.SlideMetrics[], curren
     return result
 }
 
+export const getMetricsSlidesToScroll = (slidesMetrics: ISlider.SlideMetrics[], currentSlide: number, newCurrentSlide: number, direction: 'left' | 'right') => {
+    const arr = direction === 'left' ? slidesMetrics.slice(newCurrentSlide, currentSlide) : slidesMetrics.slice(currentSlide + 1, newCurrentSlide + 1)
+
+    return {
+        x: arr[0].x,
+        width: arr.reduce((prev, item) => prev + item.width, 0)
+    }
+}
+
+export const getIndent = (sliderWidth: number, slidesWidth: number) => {
+    if (slidesWidth >= sliderWidth) return 0
+
+    return Math.floor((sliderWidth - slidesWidth) / 2)
+}
+
 export const getOffset = (
     sliderMetrics: ISlider.SliderMetrics,
     slidesMetrics: ISlider.SlideMetrics[],
@@ -45,11 +60,19 @@ export const getOffset = (
     direction: 'left' | 'right'
 ) => {
     const newCurrentSlide = getNewCurrentSlide(slidesMetrics, currentSlide, slidesToScroll, direction)
-    const newCurrentSlideElem = slidesMetrics[newCurrentSlide]
-    let newOffset = (newCurrentSlideElem.x + newCurrentSlideElem.width - sliderMetrics.width) * -1
+
+    const metricsSlidesToScroll = getMetricsSlidesToScroll(slidesMetrics, currentSlide, newCurrentSlide, direction)
+
+    const indent = getIndent(sliderMetrics.width, metricsSlidesToScroll.width)
+
+    let newOffset = (metricsSlidesToScroll.x + metricsSlidesToScroll.width - sliderMetrics.width + indent) * -1
 
     if (newOffset > 0) {
         newOffset = 0
+    }
+
+    if (sliderMetrics.trackWidth - sliderMetrics.width < Math.abs(newOffset)) {
+        newOffset = (sliderMetrics.trackWidth - sliderMetrics.width) * -1
     }
 
     return {
