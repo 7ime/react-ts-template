@@ -1,8 +1,8 @@
 var serviceWorkerOption = {
   "assets": [
     "/static/fonts/OpenSans-Light.2d0bdc8d.ttf",
-    "/static/fonts/OpenSans-SemiBold.ba5cde21.ttf",
     "/static/fonts/OpenSans-Regular.3ed9575d.ttf",
+    "/static/fonts/OpenSans-SemiBold.ba5cde21.ttf",
     "/static/fonts/OpenSans-Bold.1025a6e0.ttf",
     "/static/media/typescript.e5808285.png",
     "/static/media/javascript.0e4fdce8.png",
@@ -14,12 +14,12 @@ var serviceWorkerOption = {
     "/static/media/storybook.cdc65343.png",
     "/static/media/css.9b4a2a12.png",
     "/main.3dd93f02.css",
-    "/main.e9b8283c.bundle.js",
+    "/main.2338957f.bundle.js",
     "/vendors~main.40c6adac.bundle.js",
     "/2.043e1577.css",
     "/2.409a4710.bundle.js",
     "/3.f08452e6.css",
-    "/3.14e4497e.bundle.js",
+    "/3.9be15581.bundle.js",
     "/4.de373f52.bundle.js"
   ]
 };
