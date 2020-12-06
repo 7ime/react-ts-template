@@ -58,7 +58,7 @@ const RestApi = (props: IProps) => {
             {
                 posts && (
                     <div className={css.slider}>
-                        <Slider slidesToScroll={2} responsive={{
+                        <Slider slidesToScroll={3} responsive={{
                             1024: {
                                 slidesToScroll: 2
                             },

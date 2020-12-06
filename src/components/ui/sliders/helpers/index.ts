@@ -77,7 +77,7 @@ export const getNewCurrentSlide = (slidesMetrics: ISlider.SlideMetrics[], curren
 
     let result: [number, number] = isLeft ? [from - slidesToScroll, from - 1] : [to + 1, to + slidesToScroll]
 
-    while (!arrayIndexInRange(slidesMetrics, result[0]) && !arrayIndexInRange(slidesMetrics, result[1])) {
+    while (!arrayIndexInRange(slidesMetrics, result[0]) || !arrayIndexInRange(slidesMetrics, result[1])) {
         if (isLeft) {
             result = [result[0] + 1, result[1]]
         } else {
