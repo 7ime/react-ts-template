@@ -20,12 +20,25 @@ const Slider = (props: ISlider.SliderProps) => {
     const [offset, setOffset] = React.useState(0)
     const [currentSlide, setCurrentSlide] = React.useState<[number, number]>([0, 0])
     const [settings, setSettings] = React.useState<Required<ISlider.Settings>>(getDefaultSettings())
+    const [timeStampResize, setTimeStampResize] = React.useState(0)
 
     const {
         children,
         parentClass,
         responsive
     } = props
+
+    React.useEffect(() => {
+        const handleResize = (event: UIEvent) => {
+            setTimeStampResize(event.timeStamp)
+        }
+
+        window.addEventListener('resize', handleResize)
+
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    })
 
     React.useEffect(() => {
         const node = ref.current
@@ -64,8 +77,8 @@ const Slider = (props: ISlider.SliderProps) => {
         ))
 
         setSlideMetrics(slideMetricsBlank)
-        setCurrentSlide(initCurrentSlide(newSliderMetric.width, slideMetricsBlank))
-    }, [])
+        setCurrentSlide(initCurrentSlide(newSliderMetric.width, slideMetricsBlank, offset))
+    }, [timeStampResize])
 
     const classNames = classnames(
         css.slider,

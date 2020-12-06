@@ -31,7 +31,7 @@ const RestApi = (props: IProps) => {
     const {jsonPlaceholderService} = React.useContext(ServiceContext)
 
     const countOfPosts: Maybe<number> = useSelector(JsonPlaceholderSelector.getTotalCountOfPosts)
-    const posts: Maybe<IJsonPlaceholder.Model[]> = useSelector(JsonPlaceholderSelector.makeGetCertainNumberOfPosts(10))
+    const posts: Maybe<IJsonPlaceholder.Model[]> = useSelector(JsonPlaceholderSelector.makeGetCertainNumberOfPosts(11))
 
 
     React.useEffect(() => {

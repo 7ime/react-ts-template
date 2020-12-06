@@ -2,6 +2,18 @@ import {toNumber} from 'lodash'
 import ISlider from '@components/ui/sliders/model'
 import {arrayIndexInRange} from '@helpers/array-index-in-range'
 
+export const fitIndexToArraySize = (arr: unknown[], index: number): number => {
+    if (index < 0) return 0
+
+    let result = index
+
+    while (!arrayIndexInRange(arr, result)) {
+        result--
+    }
+
+    return result
+}
+
 export const getScreenWidth = (): number => {
     return window.innerWidth
 }
@@ -50,12 +62,24 @@ export const getSettings = (propsSettings: ISlider.Settings, responsiveSettings:
     }
 }
 
-export const initCurrentSlide = (width: number, slidesMetrics: ISlider.SlideMetrics[]): [number, number] => {
-    return slidesMetrics.reduce((prev: [number, number], item, index) => {
-        if (item.x + item.width <= width) return [0, index]
+export const checkSlideInRangeWidth = (width: number, sliderX: number, slideWidth: number, offset: number): boolean => {
+    const xEndRegardingOffset = sliderX + slideWidth - Math.abs(offset)
+
+    return xEndRegardingOffset >= slideWidth && xEndRegardingOffset <= width
+}
+
+export const initCurrentSlide = (width: number, slidesMetrics: ISlider.SlideMetrics[], offset: number): [number, number] => {
+    const first = slidesMetrics.findIndex(item => {
+        return checkSlideInRangeWidth(width, item.x, item.width, offset)
+    })
+
+    const second = slidesMetrics.reduce((prev, item, index) => {
+        if (checkSlideInRangeWidth(width, item.x, item.width, offset)) return index
 
         return prev
-    }, [0, 0])
+    }, 0)
+
+    return [fitIndexToArraySize(slidesMetrics, first), fitIndexToArraySize(slidesMetrics, second)]
 }
 
 export const showButtonPrev = (width: number, trackWidth: number, offset: number) => {
@@ -70,22 +94,12 @@ export const showButtonNext = (width: number, trackWidth: number, offset: number
     return trackWidth + offset > width
 }
 
-export const getNewCurrentSlide = (slidesMetrics: ISlider.SlideMetrics[], currentSlide: [number, number], slidesToScroll: number, direction: 'left' | 'right'): [number, number] => {
+export const getNewCurrentSlide = (slidesMetrics: ISlider.SlideMetrics[], [from, to]: [number, number], slidesToScroll: number, direction: 'left' | 'right'): [number, number] => {
     const isLeft = direction === 'left'
 
-    const [from, to] = currentSlide
+    const [first, second]: [number, number] = isLeft ? [from - slidesToScroll, from - 1] : [to + 1, to + slidesToScroll]
 
-    let result: [number, number] = isLeft ? [from - slidesToScroll, from - 1] : [to + 1, to + slidesToScroll]
-
-    while (!arrayIndexInRange(slidesMetrics, result[0]) || !arrayIndexInRange(slidesMetrics, result[1])) {
-        if (isLeft) {
-            result = [result[0] + 1, result[1]]
-        } else {
-            result = [result[0], result[1] - 1]
-        }
-    }
-
-    return result
+    return [fitIndexToArraySize(slidesMetrics, first), fitIndexToArraySize(slidesMetrics, second)]
 }
 
 export const getMetricsSlidesToScroll = (slidesMetrics: ISlider.SlideMetrics[], [from, to]: [number, number]) => {
