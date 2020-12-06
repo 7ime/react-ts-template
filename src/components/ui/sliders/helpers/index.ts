@@ -1,5 +1,54 @@
+import {toNumber} from 'lodash'
 import ISlider from '@components/ui/sliders/model'
 import {arrayIndexInRange} from '@helpers/array-index-in-range'
+
+export const getScreenWidth = (): number => {
+    return window.innerWidth
+}
+
+export const getDefaultSettings = (): Required<ISlider.Settings> => {
+    return {
+        slidesToScroll: 1
+    }
+}
+
+export const getPropsSettings = (props: ISlider.SliderProps): ISlider.Settings => {
+    const result: ISlider.Settings = {}
+
+    if (props.slidesToScroll !== undefined) {
+        result.slidesToScroll = props.slidesToScroll
+    }
+
+    return result
+}
+
+export const getCurrentBreakPoint = (breakPoints: number[]): number | null => {
+    const screenWidth = getScreenWidth()
+
+    const sortedBreakPoints = breakPoints.sort((a, b) => a - b)
+
+    const index = sortedBreakPoints.findIndex(item => {
+        return item >= screenWidth
+    })
+
+    return index !== -1 ? breakPoints[index] : null
+}
+
+export const getResponsiveSettings = (responsive?: ISlider.Responsive): ISlider.Settings => {
+    if (!responsive) return {}
+
+    const currentBreakPoint = getCurrentBreakPoint(Object.keys(responsive).map(item => toNumber(item)))
+
+    return currentBreakPoint !== null ? responsive[currentBreakPoint] : {}
+}
+
+export const getSettings = (propsSettings: ISlider.Settings, responsiveSettings: ISlider.Settings): Required<ISlider.Settings> => {
+    return {
+        ...getDefaultSettings(),
+        ...propsSettings,
+        ...responsiveSettings
+    }
+}
 
 export const initCurrentSlide = (width: number, slidesMetrics: ISlider.SlideMetrics[]): [number, number] => {
     return slidesMetrics.reduce((prev: [number, number], item, index) => {
@@ -24,9 +73,9 @@ export const showButtonNext = (width: number, trackWidth: number, offset: number
 export const getNewCurrentSlide = (slidesMetrics: ISlider.SlideMetrics[], currentSlide: [number, number], slidesToScroll: number, direction: 'left' | 'right'): [number, number] => {
     const isLeft = direction === 'left'
 
-    const [leftBoundary, rightBoundary] = currentSlide
+    const [from, to] = currentSlide
 
-    let result: [number, number] = isLeft ? [leftBoundary - slidesToScroll, leftBoundary - 1] : [rightBoundary + 1, rightBoundary + slidesToScroll]
+    let result: [number, number] = isLeft ? [from - slidesToScroll, from - 1] : [to + 1, to + slidesToScroll]
 
     while (!arrayIndexInRange(slidesMetrics, result[0]) && !arrayIndexInRange(slidesMetrics, result[1])) {
         if (isLeft) {
@@ -39,8 +88,8 @@ export const getNewCurrentSlide = (slidesMetrics: ISlider.SlideMetrics[], curren
     return result
 }
 
-export const getMetricsSlidesToScroll = (slidesMetrics: ISlider.SlideMetrics[], [leftBoundary, rightBoundary]: [number, number]) => {
-    const arr = slidesMetrics.slice(leftBoundary, rightBoundary + 1)
+export const getMetricsSlidesToScroll = (slidesMetrics: ISlider.SlideMetrics[], [from, to]: [number, number]) => {
+    const arr = slidesMetrics.slice(from, to + 1)
 
     return {
         x: arr[0].x,

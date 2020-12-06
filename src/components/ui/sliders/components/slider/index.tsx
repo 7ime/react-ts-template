@@ -3,7 +3,13 @@ import classnames from 'classnames'
 import css from '../../styles/slider.module.scss'
 import ThemeContext from '@components/context/theme-context'
 import ISlider from '../../model'
-import {getOffset, initCurrentSlide, showButtonNext, showButtonPrev} from '@components/ui/sliders/helpers'
+import {
+    getDefaultSettings,
+    getOffset, getPropsSettings, getResponsiveSettings, getSettings,
+    initCurrentSlide,
+    showButtonNext,
+    showButtonPrev
+} from '@components/ui/sliders/helpers'
 
 const Slider = (props: ISlider.SliderProps) => {
     const theme = React.useContext(ThemeContext)
@@ -13,11 +19,12 @@ const Slider = (props: ISlider.SliderProps) => {
     const [slidesMetrics, setSlideMetrics] = React.useState<ISlider.SlideMetrics[]>([])
     const [offset, setOffset] = React.useState(0)
     const [currentSlide, setCurrentSlide] = React.useState<[number, number]>([0, 0])
+    const [settings, setSettings] = React.useState<Required<ISlider.Settings>>(getDefaultSettings())
 
     const {
         children,
         parentClass,
-        slidesToScroll
+        responsive
     } = props
 
     React.useEffect(() => {
@@ -51,6 +58,11 @@ const Slider = (props: ISlider.SliderProps) => {
             x = x + width
         })
 
+        setSettings(getSettings(
+            getPropsSettings(props),
+            getResponsiveSettings(responsive)
+        ))
+
         setSlideMetrics(slideMetricsBlank)
         setCurrentSlide(initCurrentSlide(newSliderMetric.width, slideMetricsBlank))
     }, [])
@@ -64,7 +76,7 @@ const Slider = (props: ISlider.SliderProps) => {
     const calculation = React.useCallback((direction: 'right' | 'left') => {
         if (!sliderMetrics) return
 
-        const result = getOffset(sliderMetrics, slidesMetrics, currentSlide, slidesToScroll, direction)
+        const result = getOffset(sliderMetrics, slidesMetrics, currentSlide, settings.slidesToScroll, direction)
 
         setOffset(result.offset)
         setCurrentSlide(result.currentSlide)

@@ -17,6 +17,10 @@
     &.slideOdd {
         .slideContentWrap {
             width: 357px;
+
+            @media (max-width: 768px) {
+                width: 250px;
+            }
         }
     }
 
@@ -27,6 +31,11 @@
         background-size: cover;
         border-radius: 4px;
         position: relative;
+
+        @media (max-width: 768px) {
+            width: 200px;
+            height: 300px;
+        }
 
         .slideContent {
             position: absolute;

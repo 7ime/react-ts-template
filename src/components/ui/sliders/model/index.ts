@@ -16,9 +16,15 @@ namespace ISlider {
         children: React.ReactChild | React.ReactNode
     }
 
-    export interface SliderProps extends IParentClass {
+    export interface Settings {
+        slidesToScroll?: number
+    }
+
+    export type Responsive = Record<number, Settings>
+
+    export interface SliderProps extends IParentClass, Settings {
         children: React.FunctionComponentElement<SlideProps>[]
-        slidesToScroll: number
+        responsive?: Responsive
     }
 }
 

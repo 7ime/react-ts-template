@@ -31,7 +31,7 @@ const RestApi = (props: IProps) => {
     const {jsonPlaceholderService} = React.useContext(ServiceContext)
 
     const countOfPosts: Maybe<number> = useSelector(JsonPlaceholderSelector.getTotalCountOfPosts)
-    const posts: Maybe<IJsonPlaceholder.Model[]> = useSelector(JsonPlaceholderSelector.makeGetCertainNumberOfPosts(50))
+    const posts: Maybe<IJsonPlaceholder.Model[]> = useSelector(JsonPlaceholderSelector.makeGetCertainNumberOfPosts(10))
 
 
     React.useEffect(() => {
@@ -58,7 +58,14 @@ const RestApi = (props: IProps) => {
             {
                 posts && (
                     <div className={css.slider}>
-                        <Slider slidesToScroll={3}>
+                        <Slider slidesToScroll={2} responsive={{
+                            1024: {
+                                slidesToScroll: 2
+                            },
+                            768: {
+                                slidesToScroll: 1
+                            }
+                        }}>
                             {
                                 posts.map((post, index) => {
                                     const classNames = classnames([
