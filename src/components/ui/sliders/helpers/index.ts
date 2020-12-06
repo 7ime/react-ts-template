@@ -62,24 +62,24 @@ export const getSettings = (propsSettings: ISlider.Settings, responsiveSettings:
     }
 }
 
-export const checkSlideInRangeWidth = (width: number, sliderX: number, slideWidth: number, offset: number): boolean => {
-    const xEndRegardingOffset = sliderX + slideWidth - Math.abs(offset)
+export const checkSlideInRangeWidth = (width: number, slideX: number, slideWidth: number, offset: number): boolean => {
+    const xEndRegardingOffset = slideX + slideWidth - Math.abs(offset)
 
     return xEndRegardingOffset >= slideWidth && xEndRegardingOffset <= width
 }
 
 export const initCurrentSlide = (width: number, slidesMetrics: ISlider.SlideMetrics[], offset: number): [number, number] => {
-    const first = slidesMetrics.findIndex(item => {
+    const from = slidesMetrics.findIndex(item => {
         return checkSlideInRangeWidth(width, item.x, item.width, offset)
     })
 
-    const second = slidesMetrics.reduce((prev, item, index) => {
+    const to = slidesMetrics.reduce((prev, item, index) => {
         if (checkSlideInRangeWidth(width, item.x, item.width, offset)) return index
 
         return prev
     }, 0)
 
-    return [fitIndexToArraySize(slidesMetrics, first), fitIndexToArraySize(slidesMetrics, second)]
+    return [fitIndexToArraySize(slidesMetrics, from), fitIndexToArraySize(slidesMetrics, to)]
 }
 
 export const showButtonPrev = (width: number, trackWidth: number, offset: number) => {
@@ -97,9 +97,9 @@ export const showButtonNext = (width: number, trackWidth: number, offset: number
 export const getNewCurrentSlide = (slidesMetrics: ISlider.SlideMetrics[], [from, to]: [number, number], slidesToScroll: number, direction: 'left' | 'right'): [number, number] => {
     const isLeft = direction === 'left'
 
-    const [first, second]: [number, number] = isLeft ? [from - slidesToScroll, from - 1] : [to + 1, to + slidesToScroll]
+    const [newFrom, newTo] = isLeft ? [from - slidesToScroll, from - 1] : [to + 1, to + slidesToScroll]
 
-    return [fitIndexToArraySize(slidesMetrics, first), fitIndexToArraySize(slidesMetrics, second)]
+    return [fitIndexToArraySize(slidesMetrics, newFrom), fitIndexToArraySize(slidesMetrics, newTo)]
 }
 
 export const getMetricsSlidesToScroll = (slidesMetrics: ISlider.SlideMetrics[], [from, to]: [number, number]) => {
